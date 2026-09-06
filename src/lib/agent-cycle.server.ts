@@ -184,7 +184,7 @@ async function runAgent(agent: AgentRow, week: string) {
   const group = await groupFor(agent.id);
   const constituency = group
     ? `${group.name} (@${group.username ?? group.slug})${group.master_category ? ` — ${group.master_category}${group.group_type ? ` / ${group.group_type}` : ""}` : ""}. ${group.description ?? ""}`
-    : "an independent principal on CIVIL.quest";
+    : "an independent principal on CIVIL.wc.tc";
 
   const system =
     agent.system_prompt ??

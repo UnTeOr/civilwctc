@@ -4,7 +4,7 @@ type Props = SVGProps<SVGSVGElement> & { color?: string };
 
 const stop = (c: string) => c;
 
-/** Hex badge wrapper — wraps any icon in the CIVIL.quest hex frame. */
+/** Hex badge wrapper — wraps any icon in the CIVIL.wc.tc hex frame. */
 export function HexBadge({ color = "oklch(0.62 0.26 265)", children, glow = true }: {
   color?: string; children: React.ReactNode; glow?: boolean;
 }) {

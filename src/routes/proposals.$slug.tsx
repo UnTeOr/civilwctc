@@ -15,8 +15,8 @@ import { AgentVotePanel } from "@/components/civic/AgentVotePanel";
 export const Route = createFileRoute("/proposals/$slug")({
   head: ({ params }) => ({
     meta: [
-      { title: `Proposal — ${params.slug} | CIVIL.quest` },
-      { name: "description", content: "View and score this civic proposal on CIVIL.quest" },
+      { title: `Proposal — ${params.slug} | CIVIL.wc.tc` },
+      { name: "description", content: "View and score this civic proposal on CIVIL.wc.tc" },
     ],
   }),
   loader: async ({ params }) => {
@@ -87,7 +87,7 @@ function ProposalDetailPage() {
   const primaryMutation = useMutation({
     mutationFn: async () => submitPrimaryVote({ data: { proposal_id: proposal.id, score: overall, comment: reason || undefined } }),
     onSuccess: () => {
-      toast.success("Your vote is recorded. +10 PC");
+      toast.success("Your vote is recorded. +10 CP");
       tally.refetch();
       queryClient.invalidateQueries({ queryKey: ["my-votes", proposal.id] });
       queryClient.invalidateQueries({ queryKey: ["primary-votes", proposal.id] });
@@ -100,7 +100,7 @@ function ProposalDetailPage() {
       return submitVote({ data: { issue_id, score } });
     },
     onSuccess: () => {
-      toast.success("Sub-vote recorded. +5 PC");
+      toast.success("Sub-vote recorded. +5 CP");
       queryClient.invalidateQueries({ queryKey: ["proposal", proposal.slug] });
     },
     onError: (err: any) => {
@@ -116,7 +116,7 @@ function ProposalDetailPage() {
       let signature: string | undefined;
       if (wallet.connected && wallet.publicKey) {
         wallet_address = wallet.publicKey;
-        const msg = new TextEncoder().encode(`CIVIL.quest seal:${contentHash}`);
+        const msg = new TextEncoder().encode(`CIVIL.wc.tc seal:${contentHash}`);
         const sig = await wallet.signMessage(msg);
         if (sig) signature = Array.from(sig).map((b) => b.toString(16).padStart(2, "0")).join("");
       }

@@ -6,7 +6,7 @@ import { Search as SearchIcon } from "lucide-react";
 import { globalSearch } from "@/lib/search.functions";
 
 export const Route = createFileRoute("/search")({
-  head: () => ({ meta: [{ title: "Search — CIVIL.quest" }, { name: "description", content: "Search proposals, agents, and groups." }] }),
+  head: () => ({ meta: [{ title: "Search — CIVIL.wc.tc" }, { name: "description", content: "Search proposals, agents, and groups." }] }),
   component: SearchPage,
   errorComponent: ({ error }) => <div className="p-10 text-center text-muted-foreground">{error.message}</div>,
   notFoundComponent: () => <div className="p-10 text-center">Not found</div>,

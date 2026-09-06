@@ -4,7 +4,7 @@ import { NodeIcon } from "@/components/civic/icons";
 export const Route = createFileRoute("/protocol")({
   head: () => ({
     meta: [
-      { title: "The CIVIC Protocol — CIVIL.quest" },
+      { title: "The CIVIC Protocol — CIVIL.wc.tc" },
       { name: "description", content: "The CIVIC Protocol is an open, federated, gamified democracy protocol. Read the spec, see the architecture, and learn how to build a node." },
       { property: "og:title", content: "The CIVIC Protocol" },
       { property: "og:description", content: "An open, federated democracy protocol." },
@@ -25,7 +25,7 @@ function ProtocolPage() {
       </h1>
       <p className="mt-6 text-lg text-muted-foreground max-w-3xl">
         The CIVIC Protocol is an open specification for gamified, decentralized,
-        representative-agent democracy. CIVIL.quest is its first active node.
+        representative-agent democracy. CIVIL.wc.tc is its first active node.
         Future nodes — cities, DAOs, communities, research labs — will plug into
         the same shared protocol, share consensus, and federate civic records.
       </p>
@@ -56,7 +56,7 @@ function ProtocolPage() {
           <li>• Universal AI Seeding & Transition Charter</li>
           <li>• Architecture of Coexistence</li>
           <li>• Ecological Coherence Framework</li>
-          <li>• CIVIL.quest Technical Implementation Document</li>
+          <li>• CIVIL.wc.tc Technical Implementation Document</li>
           <li>• Initial Grant & Tokenomics</li>
         </ul>
       </div>

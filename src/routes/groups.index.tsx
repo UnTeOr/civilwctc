@@ -7,7 +7,7 @@ import { Users } from "lucide-react";
 export const Route = createFileRoute("/groups/")({
   head: () => ({
     meta: [
-      { title: "Constituents — CIVIL.quest" },
+      { title: "Constituents — CIVIL.wc.tc" },
       { name: "description", content: "Constituent groups, advocacy coalitions, and the representative agents that speak for them." },
       { property: "og:title", content: "Constituents" },
       { property: "og:description", content: "Find or create a constituent group with its own library and representative agents." },

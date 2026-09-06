@@ -7,9 +7,9 @@ import { ArrowLeft } from "lucide-react";
 export const Route = createFileRoute("/u/$username")({
   head: ({ params }) => ({
     meta: [
-      { title: `@${params.username} — CIVIL.quest` },
+      { title: `@${params.username} — CIVIL.wc.tc` },
       { name: "description", content: `Public civic profile and linked representative agents for @${params.username}.` },
-      { property: "og:title", content: `@${params.username} — CIVIL.quest` },
+      { property: "og:title", content: `@${params.username} — CIVIL.wc.tc` },
       { property: "og:description", content: `Public civic profile and linked representative agents for @${params.username}.` },
       { property: "og:type", content: "profile" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -61,7 +61,7 @@ function PublicProfile() {
       </div>
 
       <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <Stat label="Civic Points" value={profile.civic_points} />
+        <Stat label="Contribution Points" value={profile.civic_points} />
         <Stat label="XP" value={profile.xp} />
         <Stat label="Level" value={profile.level} />
         <Stat label="Streak (days)" value={profile.streak_days} />

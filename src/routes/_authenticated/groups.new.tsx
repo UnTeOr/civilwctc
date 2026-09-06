@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { createGroup } from "@/lib/groups.functions";
 
 export const Route = createFileRoute("/_authenticated/groups/new")({
-  head: () => ({ meta: [{ title: "Create Group — CIVIL.quest" }] }),
+  head: () => ({ meta: [{ title: "Create Group — CIVIL.wc.tc" }] }),
   component: NewGroupPage,
 });
 

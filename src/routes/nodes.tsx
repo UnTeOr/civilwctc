@@ -5,7 +5,7 @@ import { Globe2, Users, CheckCircle } from "lucide-react";
 export const Route = createFileRoute("/nodes")({
   head: () => ({
     meta: [
-      { title: "Nodes — CIVIL.quest" },
+      { title: "Nodes — CIVIL.wc.tc" },
       { name: "description", content: "The CIVIC Protocol node directory. Discover active nodes in the federated civic network." },
     ],
   }),
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/nodes")({
 
 const NODES = [
   {
-    name: "CIVIL.quest",
+    name: "CIVIL.wc.tc",
     location: "Global",
     status: "active",
     citizens: 23400,

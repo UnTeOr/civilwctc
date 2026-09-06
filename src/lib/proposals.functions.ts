@@ -237,7 +237,7 @@ export const createProposal = createServerFn({ method: "POST" })
         parent_action_id: data.parent_public_id?.trim().toUpperCase() ?? null,
         sub_items: issues.map((i) => i.title),
         author_did: `did:civic:${userId}`,
-        node: "civil.quest",
+        node: "civil.wc.tc",
         issued_at: new Date().toISOString(),
       };
 

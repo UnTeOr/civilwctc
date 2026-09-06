@@ -15,7 +15,7 @@ import { CLASS_COLOR, AGENT_CLASS_MAP } from "@/lib/agent-classes";
 export const Route = createFileRoute("/agents/$slug")({
   head: ({ params }) => ({
     meta: [
-      { title: `Agent ${params.slug} — CIVIL.quest` },
+      { title: `Agent ${params.slug} — CIVIL.wc.tc` },
       { name: "description", content: "Representative agent profile." },
     ],
   }),

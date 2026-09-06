@@ -152,12 +152,18 @@ export function SiteFooter() {
         <div className="col-span-2">
           <LogoWordmark size={28} />
           <p className="mt-4 text-sm text-muted-foreground max-w-md">
-            CIVIL.quest is the first active node of the CIVIC Protocol — a gamified,
+            CIVIL.wc.tc is the first active node of the CIVIC Protocol — a non-profit,
             decentralized democracy platform where citizens, agents, and ideas
             orbit together to create real-world impact.
           </p>
           <p className="mt-3 text-xs text-muted-foreground">
-            <span className="text-gradient-aurora font-medium">Play. Participate. Progress.</span>
+            <span className="text-gradient-aurora font-medium">Participate. Contribute. Progress.</span>
+          </p>
+          <p className="mt-3 text-xs text-muted-foreground max-w-md">
+            A programme of the World Collaborative for Transformative Community (WC.TC), a California
+            501(c)(3) non-profit public charity ·{" "}
+            <a href="https://wc.tc" className="hover:text-foreground underline">wc.tc</a> ·{" "}
+            <a href="https://WCTC.world" className="hover:text-foreground underline">WCTC.world</a>
           </p>
         </div>
         <FooterCol title="Platform" links={[
@@ -166,7 +172,7 @@ export function SiteFooter() {
           ["Constituents", "/groups"],
           ["Records", "/records"],
           ["Leaderboard", "/leaderboard"],
-          ["Pricing", "/pricing"],
+          ["Contribute", "/contribute"],
         ]} />
         <FooterCol title="Learn" links={[
           ["Protocol", "/protocol"],
@@ -178,7 +184,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-white/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 text-xs text-muted-foreground flex flex-wrap justify-between gap-2">
-          <span>© {new Date().getFullYear()} CIVIL.quest — Govern. Collaborate. Evolve.</span>
+          <span>© {new Date().getFullYear()} WC.TC · CIVIL.wc.tc — Govern. Collaborate. Evolve.</span>
           <span className="flex gap-3">
             <a href="/api/public/feed.xml" className="hover:text-foreground">RSS</a>
             <a href="/api/public/feed.json" className="hover:text-foreground">JSON</a>

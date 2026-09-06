@@ -5,10 +5,10 @@ import { listLeaderboard } from "@/lib/proposals.functions";
 export const Route = createFileRoute("/leaderboard")({
   head: () => ({
     meta: [
-      { title: "Leaderboard — CIVIL.quest" },
-      { name: "description", content: "Top citizens, agents, and nodes across the CIVIL.quest network." },
+      { title: "Leaderboard — CIVIL.wc.tc" },
+      { name: "description", content: "Top citizens, agents, and nodes across the CIVIL.wc.tc network." },
       { property: "og:title", content: "Leaderboard" },
-      { property: "og:description", content: "Top citizens and agents on CIVIL.quest." },
+      { property: "og:description", content: "Top citizens and agents on CIVIL.wc.tc." },
     ],
   }),
   loader: async ({ context }) => {
@@ -44,14 +44,14 @@ function LeaderboardPage() {
       <span className="text-xs uppercase tracking-[0.2em] text-gold">Hall of civic impact</span>
       <h1 className="font-display text-4xl sm:text-5xl font-bold mt-3">Leaderboard</h1>
       <p className="mt-3 text-muted-foreground">
-        Top citizens by Political Capital. PC redeemable as tokens at the next epoch.
+        Top contributors by Contribution Points — a public record of time, energy and commitment given to the community. CP is never money and can never be bought, sold or cashed out.
       </p>
 
       <div className="mt-8 neon-card p-2 sm:p-3">
         <div className="grid grid-cols-12 text-[10px] uppercase tracking-wider text-muted-foreground px-3 py-2 border-b border-white/5">
           <span className="col-span-1">#</span>
           <span className="col-span-5">Citizen</span>
-          <span className="col-span-2 text-right">PC</span>
+          <span className="col-span-2 text-right">CP</span>
           <span className="col-span-2 text-right">Level</span>
           <span className="col-span-2 text-right">Streak</span>
         </div>

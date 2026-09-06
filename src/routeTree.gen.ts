@@ -14,13 +14,13 @@ import { Route as RecordsRouteImport } from './routes/records'
 import { Route as ProtocolRouteImport } from './routes/protocol'
 import { Route as ProposalsRouteImport } from './routes/proposals'
 import { Route as ProfileRouteImport } from './routes/profile'
-import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as NodesRouteImport } from './routes/nodes'
 import { Route as LeaderboardRouteImport } from './routes/leaderboard'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as HelpRouteImport } from './routes/help'
 import { Route as GroupsRouteImport } from './routes/groups'
+import { Route as ContributeRouteImport } from './routes/contribute'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AgentsRouteImport } from './routes/agents'
 import { Route as AboutRouteImport } from './routes/about'
@@ -68,11 +68,6 @@ const ProfileRoute = ProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const OnboardingRoute = OnboardingRouteImport.update({
   id: '/onboarding',
   path: '/onboarding',
@@ -101,6 +96,11 @@ const HelpRoute = HelpRouteImport.update({
 const GroupsRoute = GroupsRouteImport.update({
   id: '/groups',
   path: '/groups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContributeRoute = ContributeRouteImport.update({
+  id: '/contribute',
+  path: '/contribute',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -214,13 +214,13 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/agents': typeof AgentsRouteWithChildren
   '/auth': typeof AuthRoute
+  '/contribute': typeof ContributeRoute
   '/groups': typeof GroupsRouteWithChildren
   '/help': typeof HelpRoute
   '/how-it-works': typeof HowItWorksRoute
   '/leaderboard': typeof LeaderboardRoute
   '/nodes': typeof NodesRoute
   '/onboarding': typeof OnboardingRoute
-  '/pricing': typeof PricingRoute
   '/profile': typeof ProfileRoute
   '/proposals': typeof ProposalsRouteWithChildren
   '/protocol': typeof ProtocolRoute
@@ -247,12 +247,12 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/contribute': typeof ContributeRoute
   '/help': typeof HelpRoute
   '/how-it-works': typeof HowItWorksRoute
   '/leaderboard': typeof LeaderboardRoute
   '/nodes': typeof NodesRoute
   '/onboarding': typeof OnboardingRoute
-  '/pricing': typeof PricingRoute
   '/profile': typeof ProfileRoute
   '/protocol': typeof ProtocolRoute
   '/records': typeof RecordsRoute
@@ -281,13 +281,13 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/agents': typeof AgentsRouteWithChildren
   '/auth': typeof AuthRoute
+  '/contribute': typeof ContributeRoute
   '/groups': typeof GroupsRouteWithChildren
   '/help': typeof HelpRoute
   '/how-it-works': typeof HowItWorksRoute
   '/leaderboard': typeof LeaderboardRoute
   '/nodes': typeof NodesRoute
   '/onboarding': typeof OnboardingRoute
-  '/pricing': typeof PricingRoute
   '/profile': typeof ProfileRoute
   '/proposals': typeof ProposalsRouteWithChildren
   '/protocol': typeof ProtocolRoute
@@ -317,13 +317,13 @@ export interface FileRouteTypes {
     | '/about'
     | '/agents'
     | '/auth'
+    | '/contribute'
     | '/groups'
     | '/help'
     | '/how-it-works'
     | '/leaderboard'
     | '/nodes'
     | '/onboarding'
-    | '/pricing'
     | '/profile'
     | '/proposals'
     | '/protocol'
@@ -350,12 +350,12 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/auth'
+    | '/contribute'
     | '/help'
     | '/how-it-works'
     | '/leaderboard'
     | '/nodes'
     | '/onboarding'
-    | '/pricing'
     | '/profile'
     | '/protocol'
     | '/records'
@@ -383,13 +383,13 @@ export interface FileRouteTypes {
     | '/about'
     | '/agents'
     | '/auth'
+    | '/contribute'
     | '/groups'
     | '/help'
     | '/how-it-works'
     | '/leaderboard'
     | '/nodes'
     | '/onboarding'
-    | '/pricing'
     | '/profile'
     | '/proposals'
     | '/protocol'
@@ -419,13 +419,13 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AgentsRoute: typeof AgentsRouteWithChildren
   AuthRoute: typeof AuthRoute
+  ContributeRoute: typeof ContributeRoute
   GroupsRoute: typeof GroupsRouteWithChildren
   HelpRoute: typeof HelpRoute
   HowItWorksRoute: typeof HowItWorksRoute
   LeaderboardRoute: typeof LeaderboardRoute
   NodesRoute: typeof NodesRoute
   OnboardingRoute: typeof OnboardingRoute
-  PricingRoute: typeof PricingRoute
   ProfileRoute: typeof ProfileRoute
   ProposalsRoute: typeof ProposalsRouteWithChildren
   ProtocolRoute: typeof ProtocolRoute
@@ -475,13 +475,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/onboarding': {
       id: '/onboarding'
       path: '/onboarding'
@@ -522,6 +515,13 @@ declare module '@tanstack/react-router' {
       path: '/groups'
       fullPath: '/groups'
       preLoaderRoute: typeof GroupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contribute': {
+      id: '/contribute'
+      path: '/contribute'
+      fullPath: '/contribute'
+      preLoaderRoute: typeof ContributeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -740,13 +740,13 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AgentsRoute: AgentsRouteWithChildren,
   AuthRoute: AuthRoute,
+  ContributeRoute: ContributeRoute,
   GroupsRoute: GroupsRouteWithChildren,
   HelpRoute: HelpRoute,
   HowItWorksRoute: HowItWorksRoute,
   LeaderboardRoute: LeaderboardRoute,
   NodesRoute: NodesRoute,
   OnboardingRoute: OnboardingRoute,
-  PricingRoute: PricingRoute,
   ProfileRoute: ProfileRoute,
   ProposalsRoute: ProposalsRouteWithChildren,
   ProtocolRoute: ProtocolRoute,

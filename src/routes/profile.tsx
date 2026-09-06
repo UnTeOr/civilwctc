@@ -11,10 +11,10 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/profile")({
   head: () => ({
     meta: [
-      { title: "My Civic Record — CIVIL.quest" },
-      { name: "description", content: "Your democratic experience record on CIVIL.quest." },
-      { property: "og:title", content: "My Civic Record — CIVIL.quest" },
-      { property: "og:description", content: "Your democratic experience record on CIVIL.quest." },
+      { title: "My Civic Record — CIVIL.wc.tc" },
+      { name: "description", content: "Your democratic experience record on CIVIL.wc.tc." },
+      { property: "og:title", content: "My Civic Record — CIVIL.wc.tc" },
+      { property: "og:description", content: "Your democratic experience record on CIVIL.wc.tc." },
       { property: "og:type", content: "profile" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -336,7 +336,7 @@ function ProfilePage() {
             <>
               <h3 className="font-display text-lg font-semibold mb-4">Civic stats</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <StatCard icon={<StarSparkIcon />} label="Civic Points" value={p?.civic_points ?? 0} color="oklch(0.85 0.17 90)" />
+                <StatCard icon={<StarSparkIcon />} label="Contribution Points" value={p?.civic_points ?? 0} color="oklch(0.85 0.17 90)" />
                 <StatCard icon={<StarSparkIcon color="oklch(0.62 0.26 265)" />} label="XP" value={p?.xp ?? 0} color="oklch(0.62 0.26 265)" />
                 <StatCard icon={<StarSparkIcon color="oklch(0.66 0.22 300)" />} label="Level" value={p?.level ?? 1} color="oklch(0.66 0.22 300)" />
                 <StatCard icon={<FlameIcon />} label="Streak (days)" value={p?.streak_days ?? 0} color="oklch(0.70 0.27 0)" />
@@ -389,8 +389,8 @@ function ProfilePage() {
               <div className="mt-8">
                 <h4 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Next steps</h4>
                 <ul className="grid sm:grid-cols-2 gap-3 text-sm">
-                  <li className="neon-card p-3">🎯 Score your first action — earn 50 PC</li>
-                  <li className="neon-card p-3">🤖 Create your representative agent — earn 200 PC</li>
+                  <li className="neon-card p-3">🎯 Score your first action — earn 50 CP</li>
+                  <li className="neon-card p-3">🤖 Create your representative agent — earn 200 CP</li>
                   <li className="neon-card p-3">🔗 Link your Solana wallet (soon)</li>
                   <li className="neon-card p-3">🏘️ Join a community node</li>
                 </ul>

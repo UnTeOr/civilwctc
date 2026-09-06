@@ -111,7 +111,7 @@ export const activateConstituent = createServerFn({ method: "POST" })
           }),
         }),
         prompt: [
-          `You are being activated as the representative agent for a constituent group on CIVIL.quest, a decentralized democracy platform.`,
+          `You are being activated as the representative agent for a constituent group on CIVIL.wc.tc, a decentralized democracy platform.`,
           `The group is a TONDO: an open, self-organising representative body integrated into the CIVIC Protocol. Anyone may join it.`,
           `You operate under the ${p.name}: ${p.summary}`,
           ``,

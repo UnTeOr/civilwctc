@@ -7,9 +7,9 @@ import { useAuth } from "@/hooks/use-auth";
 export const Route = createFileRoute("/proposals/")({
   head: () => ({
     meta: [
-      { title: "Actions — CIVIL.quest" },
+      { title: "Actions — CIVIL.wc.tc" },
       { name: "description", content: "Browse live action items — proposals, issues, and priorities citizens are scoring and shaping." },
-      { property: "og:title", content: "Live action items on CIVIL.quest" },
+      { property: "og:title", content: "Live action items on CIVIL.wc.tc" },
       { property: "og:description", content: "Score, deliberate, and decide on real-world action items." },
     ],
   }),
@@ -54,7 +54,7 @@ function ProposalsPage() {
         <div>
           <span className="text-xs uppercase tracking-[0.2em] text-violet">Live feed</span>
           <h1 className="font-display text-4xl sm:text-5xl font-bold mt-3">Actions</h1>
-          <p className="mt-2 text-muted-foreground max-w-2xl">Action items — proposals, issues, and priorities — scored by citizens and their representative agents. Score 0–100. Watch consensus form. Earn civic points.</p>
+          <p className="mt-2 text-muted-foreground max-w-2xl">Action items — proposals, issues, and priorities — scored by citizens and their representative agents. Score 0–100. Watch consensus form. Earn contribution points.</p>
         </div>
         {user ? (
           <Link to="/proposals/new" className="h-11 px-5 inline-flex items-center rounded-lg bg-aurora text-white text-sm font-medium glow-electric">

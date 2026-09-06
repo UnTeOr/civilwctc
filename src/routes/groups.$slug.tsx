@@ -11,7 +11,7 @@ import { AgentActivityFeed } from "@/components/civic/AgentActivityFeed";
 export const Route = createFileRoute("/groups/$slug")({
   head: ({ params }) => ({
     meta: [
-      { title: `Group — ${params.slug} | CIVIL.quest` },
+      { title: `Group — ${params.slug} | CIVIL.wc.tc` },
       { name: "description", content: "Group profile, library, and representative agents." },
     ],
   }),

@@ -9,7 +9,7 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
     meta: [
-      { title: "Coordinator Dashboard — CIVIL.quest" },
+      { title: "Coordinator Dashboard — CIVIL.wc.tc" },
       { name: "description", content: "Node operations, moderation, and analytics." },
     ],
   }),
