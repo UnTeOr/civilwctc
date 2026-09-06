@@ -25,8 +25,8 @@ export const Route = createFileRoute("/api/public/feed.xml")({
         const items = (proposals ?? []).map((p) => `
     <item>
       <title>${esc(p.title)}</title>
-      <link>https://civil.quest/proposals/${esc(p.slug)}</link>
-      <guid isPermaLink="true">https://civil.quest/proposals/${esc(p.slug)}</guid>
+      <link>https://civil.wc.tc/proposals/${esc(p.slug)}</link>
+      <guid isPermaLink="true">https://civil.wc.tc/proposals/${esc(p.slug)}</guid>
       <description>${esc(p.summary)}</description>
       <category>${esc(p.category)}</category>
       <category>${esc(p.scope)}</category>
@@ -37,8 +37,8 @@ export const Route = createFileRoute("/api/public/feed.xml")({
         const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>CIVIL.quest — Live Proposals</title>
-    <link>https://civil.quest/proposals</link>
+    <title>CIVIL.wc.tc — Live Proposals</title>
+    <link>https://civil.wc.tc/proposals</link>
     <description>Live civic proposals from the CIVIC Protocol network.</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>${items}

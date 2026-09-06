@@ -7,8 +7,8 @@ import { ArrowRight, Check, Sparkles } from "lucide-react";
 export const Route = createFileRoute("/onboarding")({
   head: () => ({
     meta: [
-      { title: "Welcome — CIVIL.quest" },
-      { name: "description", content: "Complete your CIVIL.quest onboarding." },
+      { title: "Welcome — CIVIL.wc.tc" },
+      { name: "description", content: "Complete your CIVIL.wc.tc onboarding." },
     ],
   }),
   component: OnboardingPage,
@@ -77,7 +77,7 @@ function OnboardingPage() {
         {step === 0 && (
           <div className="text-center">
             <Sparkles className="h-10 w-10 mx-auto text-violet" />
-            <h1 className="mt-4 font-display text-3xl sm:text-4xl font-bold">Welcome to CIVIL.quest</h1>
+            <h1 className="mt-4 font-display text-3xl sm:text-4xl font-bold">Welcome to CIVIL.wc.tc</h1>
             <p className="mt-3 text-muted-foreground max-w-md mx-auto">
               You are now a citizen of the first active node of the CIVIC Protocol. Let us set up your civic identity in 3 quick steps.
             </p>

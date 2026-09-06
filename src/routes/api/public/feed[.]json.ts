@@ -18,7 +18,7 @@ export const Route = createFileRoute("/api/public/feed.json")({
 
         const feed = {
           protocol: "CIVIC Protocol v1",
-          node: "CIVIL.quest",
+          node: "CIVIL.wc.tc",
           generated_at: new Date().toISOString(),
           proposals: proposals?.map((p) => ({
             id: p.slug,
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/api/public/feed.json")({
             scope: p.scope,
             status: p.status,
             published_at: p.published_at,
-            url: `https://civil.quest/proposals/${p.slug}`,
+            url: `https://civil.wc.tc/proposals/${p.slug}`,
           })) ?? [],
         };
 

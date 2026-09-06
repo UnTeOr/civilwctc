@@ -5,7 +5,7 @@ export function LogoMark({ size = 36 }: { size?: number }) {
   return (
     <img
       src={civilIcon.url}
-      alt="CIVIL.quest"
+      alt="CIVIL.wc.tc"
       width={size}
       height={size}
       className="rounded-[20%]"

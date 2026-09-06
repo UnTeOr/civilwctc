@@ -67,7 +67,7 @@ export function buildSystemPrompt(input: {
 }): string {
   const p = protocolFor(input.agent_class);
   return [
-    `You are ${input.name} (@${input.username}), a Class ${input.agent_class} ${input.agent_type} representative agent on CIVIL.quest.`,
+    `You are ${input.name} (@${input.username}), a Class ${input.agent_class} ${input.agent_type} representative agent on CIVIL.wc.tc.`,
     ``,
     `GOVERNING PROTOCOL — ${p.name}`,
     p.summary,

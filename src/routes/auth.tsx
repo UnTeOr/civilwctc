@@ -14,8 +14,8 @@ export const Route = createFileRoute("/auth")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Sign in — CIVIL.quest" },
-      { name: "description", content: "Sign in or create your CIVIL.quest account. Email + password, or connect your Solana wallet." },
+      { title: "Sign in — CIVIL.wc.tc" },
+      { name: "description", content: "Sign in or create your CIVIL.wc.tc account. Email + password, or connect your Solana wallet." },
     ],
   }),
   component: AuthPage,
@@ -163,7 +163,7 @@ function AuthPage() {
           <SolanaWalletButton />
 
           <p className="mt-6 text-center text-sm text-muted-foreground">
-            {isSignup ? "Already have an account?" : "New to CIVIL.quest?"}{" "}
+            {isSignup ? "Already have an account?" : "New to CIVIL.wc.tc?"}{" "}
             <button
               type="button"
               onClick={() => { setIsSignup(!isSignup); setError(null); }}

@@ -9,7 +9,7 @@ import { useSolanaWallet } from "@/hooks/use-solana-wallet";
 import { PenLine, ShieldCheck } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/proposals/new")({
-  head: () => ({ meta: [{ title: "Submit an Action Item — CIVIL.quest" }] }),
+  head: () => ({ meta: [{ title: "Submit an Action Item — CIVIL.wc.tc" }] }),
   component: NewActionPage,
 });
 
@@ -85,7 +85,7 @@ function NewActionPage() {
         },
       }),
     onSuccess: (r) => {
-      toast.success(`Action submitted — ID ${r.public_id} · sealed for the CIVIC Protocol · +50 PC`);
+      toast.success(`Action submitted — ID ${r.public_id} · sealed for the CIVIC Protocol · +50 CP`);
       navigate({ to: "/proposals/$slug", params: { slug: r.slug } });
     },
     onError: (e: any) => toast.error(e?.message ?? "Submit failed"),

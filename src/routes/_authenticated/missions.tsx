@@ -5,7 +5,7 @@ import { getMyCivicSummary } from "@/lib/proposals.functions";
 import { Flame, Trophy, Sparkles, ArrowUpRight, ArrowDownRight, Target } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/missions")({
-  head: () => ({ meta: [{ title: "Missions & PC Ledger — CIVIL.quest" }] }),
+  head: () => ({ meta: [{ title: "Missions & CP Ledger — CIVIL.wc.tc" }] }),
   component: MissionsPage,
 });
 
@@ -23,12 +23,12 @@ function MissionsPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12 lg:py-16">
       <span className="text-xs uppercase tracking-[0.2em] text-gold">Game layer</span>
-      <h1 className="font-display text-4xl font-bold mt-2">Missions & Political Capital</h1>
-      <p className="mt-2 text-muted-foreground">Track your streak, complete missions, earn badges, and watch your PC build.</p>
+      <h1 className="font-display text-4xl font-bold mt-2">Missions & Contribution Points</h1>
+      <p className="mt-2 text-muted-foreground">Track your streak, complete missions, earn badges, and watch your CP build.</p>
 
       {/* Top stats */}
       <div className="mt-8 grid sm:grid-cols-4 gap-4">
-        <StatCard icon={<Sparkles className="h-4 w-4" />} label="Political Capital" value={(profile?.civic_points ?? 0).toLocaleString()} accent="text-electric" />
+        <StatCard icon={<Sparkles className="h-4 w-4" />} label="Contribution Points" value={(profile?.civic_points ?? 0).toLocaleString()} accent="text-electric" />
         <StatCard icon={<Trophy className="h-4 w-4" />} label="Level" value={`Lv ${profile?.level ?? 1}`} subtitle={`${xpPct}% to next`} accent="text-violet" />
         <StatCard icon={<Flame className="h-4 w-4" />} label="Streak" value={`${profile?.streak_days ?? 0}d`} accent="text-coral" />
         <StatCard icon={<Target className="h-4 w-4" />} label="Reputation" value={String(profile?.reputation ?? 0)} accent="text-cyan" />
@@ -49,7 +49,7 @@ function MissionsPage() {
         <section className="lg:col-span-2 neon-card p-6">
           <h2 className="font-display text-xl font-semibold mb-4">Active missions</h2>
           {data.missions.length === 0 && (
-            <p className="text-sm text-muted-foreground">No missions assigned yet. Start by scoring a proposal — first vote earns 25 PC.</p>
+            <p className="text-sm text-muted-foreground">No missions assigned yet. Start by scoring a proposal — first vote earns 25 CP.</p>
           )}
           <div className="space-y-3">
             {data.missions.map((m: any) => {
@@ -66,7 +66,7 @@ function MissionsPage() {
                       <p className="text-xs text-muted-foreground mt-0.5">{m.description}</p>
                     </div>
                     <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ${done ? "bg-emerald/20 text-emerald" : "bg-white/5 text-muted-foreground"}`}>
-                      {done ? "Done" : `+${m.reward_pc ?? 0} PC`}
+                      {done ? "Done" : `+${m.reward_pc ?? 0} CP`}
                     </span>
                   </div>
                   <div className="mt-3 h-1.5 bg-white/5 rounded-full overflow-hidden">
@@ -95,7 +95,7 @@ function MissionsPage() {
       </div>
 
       <section className="mt-8 neon-card p-6">
-        <h2 className="font-display text-xl font-semibold mb-4">PC Ledger</h2>
+        <h2 className="font-display text-xl font-semibold mb-4">CP Ledger</h2>
         {data.ledger.length === 0 && (
           <p className="text-sm text-muted-foreground">No transactions yet. Every action you take here will appear on this immutable ledger.</p>
         )}
@@ -114,7 +114,7 @@ function MissionsPage() {
                   </div>
                 </div>
                 <div className={`font-display font-bold ${isCredit ? "text-emerald" : "text-coral"}`}>
-                  {isCredit ? "+" : ""}{e.amount} PC
+                  {isCredit ? "+" : ""}{e.amount} CP
                 </div>
               </div>
             );

@@ -8,9 +8,9 @@ import arenaImg from "@/assets/arena.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CIVIL.quest — Play democracy. Build the future." },
+      { title: "CIVIL.wc.tc — Play democracy. Build the future." },
       { name: "description", content: "Where citizens, AI agents and ideas orbit together to create real-world impact. The first active node of the CIVIC Protocol." },
-      { property: "og:title", content: "CIVIL.quest — Play democracy. Build the future." },
+      { property: "og:title", content: "CIVIL.wc.tc — Play democracy. Build the future." },
       { property: "og:description", content: "Non-profit decentralized democracy from WC.TC. Score proposals, build agents, contribute your time and energy." },
       { property: "og:image", content: civilIcon.url },
     ],
@@ -45,7 +45,7 @@ function Hero() {
               <div className="absolute inset-0 rounded-3xl bg-aurora blur-3xl opacity-60 animate-pulse-glow" />
               <img
                 src={civilIcon.url}
-                alt="CIVIL.quest"
+                alt="CIVIL.wc.tc"
                 className="relative w-52 h-52 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-3xl opacity-90 drop-shadow-[0_0_60px_rgba(120,140,255,0.6)]"
               />
             </div>
@@ -123,7 +123,7 @@ function Stats() {
 const FEATURES = [
   { title: "Representative Agents", desc: "Create an agent that votes the way you do, learns your values and represents you.", icon: <AgentIcon />, color: "oklch(0.78 0.15 215)", to: "/agents" as const },
   { title: "Score Real Proposals", desc: "Vote 0–100 on real-world issues. Watch live consensus form. Every contribution is recognised and recorded.", icon: <ProposalIcon />, color: "oklch(0.66 0.22 300)", to: "/proposals" as const },
-  { title: "Earn. Level Up.", desc: "Political Capital can be redeemed as tokens. Build streaks, unlock badges, climb the leaderboard.", icon: <StarSparkIcon />, color: "oklch(0.85 0.17 90)", to: "/leaderboard" as const },
+  { title: "Earn. Level Up.", desc: "Contribution Points can be redeemed as tokens. Build streaks, unlock badges, climb the leaderboard.", icon: <StarSparkIcon />, color: "oklch(0.85 0.17 90)", to: "/leaderboard" as const },
   { title: "The CIVIC Protocol", desc: "An open, federated decentralized democracy protocol that lets nodes around the world plug in and share consensus.", icon: <NodeIcon />, color: "oklch(0.78 0.15 215)", to: "/protocol" as const },
   { title: "Trust & Transparency", desc: "Every action is publicly logged and votes are signed by your Solana wallet. Truly verifiable democracy.", icon: <ConsensusIcon />, color: "oklch(0.74 0.20 152)", to: "/how-it-works" as const },
   { title: "Streaks & Missions", desc: "Daily quests, weekly missions, recurring rewards. Show up — and shape the future, one decision at a time.", icon: <FlameIcon />, color: "oklch(0.70 0.27 0)", to: "/how-it-works" as const },
@@ -135,7 +135,7 @@ function FeatureGrid() {
       <div className="text-center max-w-2xl mx-auto">
         <span className="text-xs uppercase tracking-[0.2em] text-violet">The Platform</span>
         <h2 className="font-display text-3xl sm:text-4xl font-bold mt-3">A game-grade engine for real-world decisions</h2>
-        <p className="mt-3 text-muted-foreground">Every system on CIVIL.quest is designed for maximum impact with scientific decision making.</p>
+        <p className="mt-3 text-muted-foreground">Every system on CIVIL.wc.tc is designed for maximum impact with scientific decision making.</p>
       </div>
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {FEATURES.map((f) => (
@@ -212,7 +212,7 @@ function Closing() {
           <Globe2 className="h-12 w-12 mx-auto text-white drop-shadow-[0_0_20px_rgba(120,140,255,0.8)]" />
           <h2 className="mt-4 font-display text-3xl sm:text-5xl font-bold text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.6)]">Govern. Collaborate. Evolve.</h2>
           <p className="mt-4 text-white/90 max-w-2xl mx-auto drop-shadow-[0_1px_8px_rgba(0,0,0,0.6)]">
-            CIVIL.quest is more than an app — it's the first active node of a planet-scale civic protocol.
+            CIVIL.wc.tc is more than an app — it's the first active node of a planet-scale civic protocol.
             Your voice. Your vote. Your future.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">

@@ -54,7 +54,7 @@ export async function buildProfileDocument(input: ProfileDocumentInput): Promise
     did: makeDid(userId),
     type: "CivicProfile" as const,
     version,
-    node: "civil.quest",
+    node: "civil.wc.tc",
     profile,
     issuedAt: new Date().toISOString(),
   };

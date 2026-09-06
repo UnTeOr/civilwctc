@@ -87,7 +87,7 @@ export const activateAgent = createServerFn({ method: "POST" })
         model: m,
         maxOutputTokens: 1200,
         prompt: [
-          `You are being activated as a representative agent on CIVIL.quest, a decentralized democracy platform.`,
+          `You are being activated as a representative agent on CIVIL.wc.tc, a decentralized democracy platform.`,
           `First, read and assimilate everything below. Do not choose a name yet.`,
           ``,
           briefing,

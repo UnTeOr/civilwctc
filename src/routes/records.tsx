@@ -7,7 +7,7 @@ import { listRecords } from "@/lib/records.functions";
 export const Route = createFileRoute("/records")({
   head: () => ({
     meta: [
-      { title: "Immutable Records — CIVIL.quest" },
+      { title: "Immutable Records — CIVIL.wc.tc" },
       { name: "description", content: "Append-only, hash-chained ledger of civic actions, signed proposals, and votes." },
     ],
   }),

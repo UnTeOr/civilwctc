@@ -13,7 +13,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
 
 export const Route = createFileRoute("/_authenticated/agents/new")({
-  head: () => ({ meta: [{ title: "Create Agent — CIVIL.quest" }] }),
+  head: () => ({ meta: [{ title: "Create Agent — CIVIL.wc.tc" }] }),
   component: NewAgentWizard,
 });
 
@@ -105,7 +105,7 @@ function NewAgentWizard() {
         charter: charter || undefined, external_url: externalUrl || undefined,
       }}),
     onSuccess: ({ slug }) => {
-      toast.success(`${name} created · +75 PC`);
+      toast.success(`${name} created · +75 CP`);
       navigate({ to: "/agents/$slug", params: { slug } });
     },
     onError: (e: any) => toast.error(e?.message ?? "Failed to create"),

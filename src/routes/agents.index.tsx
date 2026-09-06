@@ -10,8 +10,8 @@ import { CLASS_COLOR, AGENT_CLASSES, AGENT_CLASS_MAP } from "@/lib/agent-classes
 export const Route = createFileRoute("/agents/")({
   head: () => ({
     meta: [
-      { title: "Representative Agents — CIVIL.quest" },
-      { name: "description", content: "Personal, integrated, and external representative agents across the CIVIL.quest network." },
+      { title: "Representative Agents — CIVIL.wc.tc" },
+      { name: "description", content: "Personal, integrated, and external representative agents across the CIVIL.wc.tc network." },
       { property: "og:title", content: "Representative Agents" },
       { property: "og:description", content: "Agents that vote the way you do, agents for groups, and agents you don't control." },
     ],

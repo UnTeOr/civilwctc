@@ -10,7 +10,7 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/constituents/catalog")({
   head: () => ({
     meta: [
-      { title: "Constituent Catalog — CIVIL.quest" },
+      { title: "Constituent Catalog — CIVIL.wc.tc" },
       { name: "description", content: "Browse every category, type and constituent group in the CIVIC Protocol and activate one as a TONDO with its own representative agent." },
       { property: "og:title", content: "Constituent Catalog" },
       { property: "og:description", content: "Activate a constituency as a TONDO — it gets its own @username, profile and representative agent." },
