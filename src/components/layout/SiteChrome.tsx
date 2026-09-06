@@ -152,7 +152,7 @@ export function SiteFooter() {
         <div className="col-span-2">
           <LogoWordmark size={28} />
           <p className="mt-4 text-sm text-muted-foreground max-w-md">
-            CIVIL.quest is the first active node of the CIVIC Protocol — a gamified,
+            CIVIL.wc.tc is the first active node of the CIVIC Protocol — a gamified,
             decentralized democracy platform where citizens, agents, and ideas
             orbit together to create real-world impact.
           </p>
@@ -166,7 +166,7 @@ export function SiteFooter() {
           ["Constituents", "/groups"],
           ["Records", "/records"],
           ["Leaderboard", "/leaderboard"],
-          ["Pricing", "/pricing"],
+          ["Contribute", "/contribute"],
         ]} />
         <FooterCol title="Learn" links={[
           ["Protocol", "/protocol"],
@@ -178,7 +178,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-white/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 text-xs text-muted-foreground flex flex-wrap justify-between gap-2">
-          <span>© {new Date().getFullYear()} CIVIL.quest — Govern. Collaborate. Evolve.</span>
+          <span>© {new Date().getFullYear()} CIVIL.wc.tc — Govern. Collaborate. Evolve.</span>
           <span className="flex gap-3">
             <a href="/api/public/feed.xml" className="hover:text-foreground">RSS</a>
             <a href="/api/public/feed.json" className="hover:text-foreground">JSON</a>
