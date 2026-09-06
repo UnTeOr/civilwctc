@@ -47,7 +47,7 @@ export function AgentEfficiencyPanel({ agentId }: { agentId: string }) {
             <dd className="font-display text-lg">{fmt((t?.input_tokens ?? 0) + (t?.output_tokens ?? 0))}</dd>
           </div>
           <div>
-            <dt className="text-muted-foreground">Cost</dt>
+            <dt className="text-muted-foreground">Compute funded</dt>
             <dd className="font-display text-lg">{money(t?.cost_usd ?? 0)}</dd>
           </div>
           <div>
