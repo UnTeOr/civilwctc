@@ -100,7 +100,7 @@ const STATS = [
   { value: "23.4K", label: "Active Citizens", color: "oklch(0.62 0.26 265)" },
   { value: "1,482", label: "Active Agents", color: "oklch(0.78 0.15 215)" },
   { value: "312", label: "Active Proposals", color: "oklch(0.85 0.17 90)" },
-  { value: "$12.4M", label: "Total Staked", color: "oklch(0.74 0.20 152)" },
+  { value: "84K hrs", label: "Time Committed", color: "oklch(0.74 0.20 152)" },
   { value: "92.4M", label: "Points Awarded", color: "oklch(0.66 0.22 300)" },
   { value: "128", label: "Countries", color: "oklch(0.70 0.27 0)" },
 ];
