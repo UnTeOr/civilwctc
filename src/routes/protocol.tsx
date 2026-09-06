@@ -25,7 +25,8 @@ function ProtocolPage() {
       </h1>
       <p className="mt-6 text-lg text-muted-foreground max-w-3xl">
         The CIVIC Protocol is an open specification for gamified, decentralized,
-        representative-agent democracy. CIVIL.wc.tc is its first active node.
+        representative-agent democracy. CIVIL.quest is its first node, and
+        CIVIL.wc.tc is the second.
         Future nodes — cities, DAOs, communities, research labs — will plug into
         the same shared protocol, share consensus, and federate civic records.
       </p>

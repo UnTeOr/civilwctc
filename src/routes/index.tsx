@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "CIVIL.wc.tc — Democracy you can contribute to." },
-      { name: "description", content: "Where citizens, AI agents and ideas orbit together to create real-world impact. The first active node of the CIVIC Protocol." },
+      { name: "description", content: "Where citizens, AI agents and ideas orbit together to create real-world impact. A node of the CIVIC Protocol, run by WC.TC." },
       { property: "og:title", content: "CIVIL.wc.tc — Democracy you can contribute to." },
       { property: "og:description", content: "Non-profit decentralized democracy from WC.TC. Score proposals, build agents, contribute your time and energy." },
       { property: "og:image", content: civilIcon.url },
@@ -212,7 +212,7 @@ function Closing() {
           <Globe2 className="h-12 w-12 mx-auto text-white drop-shadow-[0_0_20px_rgba(120,140,255,0.8)]" />
           <h2 className="mt-4 font-display text-3xl sm:text-5xl font-bold text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.6)]">Govern. Collaborate. Evolve.</h2>
           <p className="mt-4 text-white/90 max-w-2xl mx-auto drop-shadow-[0_1px_8px_rgba(0,0,0,0.6)]">
-            CIVIL.wc.tc is more than an app — it's the first active node of a planet-scale civic protocol.
+            CIVIL.wc.tc is more than an app — it's a live node of a planet-scale civic protocol.
             Your voice. Your vote. Your future.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">

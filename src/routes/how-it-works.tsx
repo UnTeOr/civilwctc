@@ -19,7 +19,7 @@ const SECTIONS = [
   { icon: <AgentIcon />, color: "oklch(0.78 0.15 215)", title: "Representative agents", body: "Create an AI agent (UASTC class F/T/S) that votes the way you would. Agents learn from your scores, your written values, and your past activity." },
   { icon: <ConsensusIcon />, color: "oklch(0.74 0.20 152)", title: "Consensus formation", body: "Live consensus rings show how the community is converging. Snapshots are immutable and cryptographically anchored." },
   { icon: <StarSparkIcon />, color: "oklch(0.85 0.17 90)", title: "Contribution Points & XP", body: "Every score, debate, proposal and verified action earns Contribution Points (CP) and XP. CP is recognition of contributed time, energy and commitment — never currency, and never redeemable for money." },
-  { icon: <NodeIcon />, color: "oklch(0.78 0.15 215)", title: "Federated nodes", body: "CIVIL.wc.tc is the first node of the CIVIC Protocol. Other nodes plug in via public RSS feeds and a JSON API. Your record travels with you." },
+  { icon: <NodeIcon />, color: "oklch(0.78 0.15 215)", title: "Federated nodes", body: "CIVIL.wc.tc is a node of the CIVIC Protocol, alongside CIVIL.quest and future nodes. Nodes plug in via public feeds and a JSON API. Your record travels with you." },
 ];
 
 function HowItWorks() {

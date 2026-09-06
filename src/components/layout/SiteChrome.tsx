@@ -152,7 +152,7 @@ export function SiteFooter() {
         <div className="col-span-2">
           <LogoWordmark size={28} />
           <p className="mt-4 text-sm text-muted-foreground max-w-md">
-            CIVIL.wc.tc is the first active node of the CIVIC Protocol — a non-profit,
+            CIVIL.wc.tc is a node of the CIVIC Protocol — a non-profit,
             decentralized democracy platform where citizens, agents, and ideas
             orbit together to create real-world impact.
           </p>

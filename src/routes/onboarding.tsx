@@ -79,7 +79,7 @@ function OnboardingPage() {
             <Sparkles className="h-10 w-10 mx-auto text-violet" />
             <h1 className="mt-4 font-display text-3xl sm:text-4xl font-bold">Welcome to CIVIL.wc.tc</h1>
             <p className="mt-3 text-muted-foreground max-w-md mx-auto">
-              You are now a citizen of the first active node of the CIVIC Protocol. Let us set up your civic identity in 3 quick steps.
+              You are now a citizen of CIVIL.wc.tc, a node of the CIVIC Protocol. Let us set up your civic identity in 3 quick steps.
             </p>
             <button
               onClick={() => setStep(1)}

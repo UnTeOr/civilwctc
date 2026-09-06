@@ -36,6 +36,7 @@ import { Route as ConstituentsCatalogRouteImport } from './routes/constituents.c
 import { Route as AgentsSlugRouteImport } from './routes/agents.$slug'
 import { Route as AuthenticatedMissionsRouteImport } from './routes/_authenticated/missions'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as ApiPublicProtocolSyncRouteImport } from './routes/api/public/protocol-sync'
 import { Route as ApiPublicFeedDotxmlRouteImport } from './routes/api/public/feed[.]xml'
 import { Route as ApiPublicFeedDotjsonRouteImport } from './routes/api/public/feed[.]json'
 import { Route as ApiPublicAgentCycleRouteImport } from './routes/api/public/agent-cycle'
@@ -177,6 +178,11 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
+const ApiPublicProtocolSyncRoute = ApiPublicProtocolSyncRouteImport.update({
+  id: '/api/public/protocol-sync',
+  path: '/api/public/protocol-sync',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicFeedDotxmlRoute = ApiPublicFeedDotxmlRouteImport.update({
   id: '/api/public/feed.xml',
   path: '/api/public/feed.xml',
@@ -242,6 +248,7 @@ export interface FileRoutesByFullPath {
   '/api/public/agent-cycle': typeof ApiPublicAgentCycleRoute
   '/api/public/feed.json': typeof ApiPublicFeedDotjsonRoute
   '/api/public/feed.xml': typeof ApiPublicFeedDotxmlRoute
+  '/api/public/protocol-sync': typeof ApiPublicProtocolSyncRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -273,6 +280,7 @@ export interface FileRoutesByTo {
   '/api/public/agent-cycle': typeof ApiPublicAgentCycleRoute
   '/api/public/feed.json': typeof ApiPublicFeedDotjsonRoute
   '/api/public/feed.xml': typeof ApiPublicFeedDotxmlRoute
+  '/api/public/protocol-sync': typeof ApiPublicProtocolSyncRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -309,6 +317,7 @@ export interface FileRoutesById {
   '/api/public/agent-cycle': typeof ApiPublicAgentCycleRoute
   '/api/public/feed.json': typeof ApiPublicFeedDotjsonRoute
   '/api/public/feed.xml': typeof ApiPublicFeedDotxmlRoute
+  '/api/public/protocol-sync': typeof ApiPublicProtocolSyncRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -345,6 +354,7 @@ export interface FileRouteTypes {
     | '/api/public/agent-cycle'
     | '/api/public/feed.json'
     | '/api/public/feed.xml'
+    | '/api/public/protocol-sync'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -376,6 +386,7 @@ export interface FileRouteTypes {
     | '/api/public/agent-cycle'
     | '/api/public/feed.json'
     | '/api/public/feed.xml'
+    | '/api/public/protocol-sync'
   id:
     | '__root__'
     | '/'
@@ -411,6 +422,7 @@ export interface FileRouteTypes {
     | '/api/public/agent-cycle'
     | '/api/public/feed.json'
     | '/api/public/feed.xml'
+    | '/api/public/protocol-sync'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -436,6 +448,7 @@ export interface RootRouteChildren {
   ApiPublicAgentCycleRoute: typeof ApiPublicAgentCycleRoute
   ApiPublicFeedDotjsonRoute: typeof ApiPublicFeedDotjsonRoute
   ApiPublicFeedDotxmlRoute: typeof ApiPublicFeedDotxmlRoute
+  ApiPublicProtocolSyncRoute: typeof ApiPublicProtocolSyncRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -629,6 +642,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/api/public/protocol-sync': {
+      id: '/api/public/protocol-sync'
+      path: '/api/public/protocol-sync'
+      fullPath: '/api/public/protocol-sync'
+      preLoaderRoute: typeof ApiPublicProtocolSyncRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/feed.xml': {
       id: '/api/public/feed.xml'
       path: '/api/public/feed.xml'
@@ -757,6 +777,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicAgentCycleRoute: ApiPublicAgentCycleRoute,
   ApiPublicFeedDotjsonRoute: ApiPublicFeedDotjsonRoute,
   ApiPublicFeedDotxmlRoute: ApiPublicFeedDotxmlRoute,
+  ApiPublicProtocolSyncRoute: ApiPublicProtocolSyncRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
