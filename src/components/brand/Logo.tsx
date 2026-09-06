@@ -23,7 +23,7 @@ export function LogoWordmark({ size = 32 }: { size?: number }) {
       </span>
       <span className="flex items-baseline gap-0.5 font-display font-semibold tracking-tight">
         <span className="text-foreground text-xl">CIVIL</span>
-        <span className="text-gradient-aurora text-xl">.quest</span>
+        <span className="text-gradient-aurora text-xl">.wc.tc</span>
       </span>
     </Link>
   );
