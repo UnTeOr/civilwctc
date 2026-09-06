@@ -44,7 +44,7 @@ function LeaderboardPage() {
       <span className="text-xs uppercase tracking-[0.2em] text-gold">Hall of civic impact</span>
       <h1 className="font-display text-4xl sm:text-5xl font-bold mt-3">Leaderboard</h1>
       <p className="mt-3 text-muted-foreground">
-        Top citizens by Contribution Points. CP redeemable as tokens at the next epoch.
+        Top contributors by Contribution Points — a public record of time, energy and commitment given to the community. CP is never money and can never be bought, sold or cashed out.
       </p>
 
       <div className="mt-8 neon-card p-2 sm:p-3">

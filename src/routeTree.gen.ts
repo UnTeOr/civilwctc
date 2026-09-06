@@ -14,7 +14,6 @@ import { Route as RecordsRouteImport } from './routes/records'
 import { Route as ProtocolRouteImport } from './routes/protocol'
 import { Route as ProposalsRouteImport } from './routes/proposals'
 import { Route as ProfileRouteImport } from './routes/profile'
-import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as NodesRouteImport } from './routes/nodes'
 import { Route as LeaderboardRouteImport } from './routes/leaderboard'
@@ -67,11 +66,6 @@ const ProposalsRoute = ProposalsRouteImport.update({
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OnboardingRoute = OnboardingRouteImport.update({
@@ -227,7 +221,6 @@ export interface FileRoutesByFullPath {
   '/leaderboard': typeof LeaderboardRoute
   '/nodes': typeof NodesRoute
   '/onboarding': typeof OnboardingRoute
-  '/pricing': typeof PricingRoute
   '/profile': typeof ProfileRoute
   '/proposals': typeof ProposalsRouteWithChildren
   '/protocol': typeof ProtocolRoute
@@ -260,7 +253,6 @@ export interface FileRoutesByTo {
   '/leaderboard': typeof LeaderboardRoute
   '/nodes': typeof NodesRoute
   '/onboarding': typeof OnboardingRoute
-  '/pricing': typeof PricingRoute
   '/profile': typeof ProfileRoute
   '/protocol': typeof ProtocolRoute
   '/records': typeof RecordsRoute
@@ -296,7 +288,6 @@ export interface FileRoutesById {
   '/leaderboard': typeof LeaderboardRoute
   '/nodes': typeof NodesRoute
   '/onboarding': typeof OnboardingRoute
-  '/pricing': typeof PricingRoute
   '/profile': typeof ProfileRoute
   '/proposals': typeof ProposalsRouteWithChildren
   '/protocol': typeof ProtocolRoute
@@ -333,7 +324,6 @@ export interface FileRouteTypes {
     | '/leaderboard'
     | '/nodes'
     | '/onboarding'
-    | '/pricing'
     | '/profile'
     | '/proposals'
     | '/protocol'
@@ -366,7 +356,6 @@ export interface FileRouteTypes {
     | '/leaderboard'
     | '/nodes'
     | '/onboarding'
-    | '/pricing'
     | '/profile'
     | '/protocol'
     | '/records'
@@ -401,7 +390,6 @@ export interface FileRouteTypes {
     | '/leaderboard'
     | '/nodes'
     | '/onboarding'
-    | '/pricing'
     | '/profile'
     | '/proposals'
     | '/protocol'
@@ -438,7 +426,6 @@ export interface RootRouteChildren {
   LeaderboardRoute: typeof LeaderboardRoute
   NodesRoute: typeof NodesRoute
   OnboardingRoute: typeof OnboardingRoute
-  PricingRoute: typeof PricingRoute
   ProfileRoute: typeof ProfileRoute
   ProposalsRoute: typeof ProposalsRouteWithChildren
   ProtocolRoute: typeof ProtocolRoute
@@ -486,13 +473,6 @@ declare module '@tanstack/react-router' {
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/onboarding': {
@@ -767,7 +747,6 @@ const rootRouteChildren: RootRouteChildren = {
   LeaderboardRoute: LeaderboardRoute,
   NodesRoute: NodesRoute,
   OnboardingRoute: OnboardingRoute,
-  PricingRoute: PricingRoute,
   ProfileRoute: ProfileRoute,
   ProposalsRoute: ProposalsRouteWithChildren,
   ProtocolRoute: ProtocolRoute,

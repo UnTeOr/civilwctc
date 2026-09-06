@@ -8,9 +8,9 @@ import arenaImg from "@/assets/arena.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CIVIL.wc.tc — Play democracy. Build the future." },
+      { title: "CIVIL.wc.tc — Democracy you can contribute to." },
       { name: "description", content: "Where citizens, AI agents and ideas orbit together to create real-world impact. The first active node of the CIVIC Protocol." },
-      { property: "og:title", content: "CIVIL.wc.tc — Play democracy. Build the future." },
+      { property: "og:title", content: "CIVIL.wc.tc — Democracy you can contribute to." },
       { property: "og:description", content: "Non-profit decentralized democracy from WC.TC. Score proposals, build agents, contribute your time and energy." },
       { property: "og:image", content: civilIcon.url },
     ],
@@ -123,7 +123,7 @@ function Stats() {
 const FEATURES = [
   { title: "Representative Agents", desc: "Create an agent that votes the way you do, learns your values and represents you.", icon: <AgentIcon />, color: "oklch(0.78 0.15 215)", to: "/agents" as const },
   { title: "Score Real Proposals", desc: "Vote 0–100 on real-world issues. Watch live consensus form. Every contribution is recognised and recorded.", icon: <ProposalIcon />, color: "oklch(0.66 0.22 300)", to: "/proposals" as const },
-  { title: "Earn. Level Up.", desc: "Contribution Points can be redeemed as tokens. Build streaks, unlock badges, climb the leaderboard.", icon: <StarSparkIcon />, color: "oklch(0.85 0.17 90)", to: "/leaderboard" as const },
+  { title: "Contribute. Grow.", desc: "Contribution Points recognise the time and energy you give. Build streaks, unlock badges, climb the leaderboard.", icon: <StarSparkIcon />, color: "oklch(0.85 0.17 90)", to: "/leaderboard" as const },
   { title: "The CIVIC Protocol", desc: "An open, federated decentralized democracy protocol that lets nodes around the world plug in and share consensus.", icon: <NodeIcon />, color: "oklch(0.78 0.15 215)", to: "/protocol" as const },
   { title: "Trust & Transparency", desc: "Every action is publicly logged and votes are signed by your Solana wallet. Truly verifiable democracy.", icon: <ConsensusIcon />, color: "oklch(0.74 0.20 152)", to: "/how-it-works" as const },
   { title: "Streaks & Missions", desc: "Daily quests, weekly missions, recurring rewards. Show up — and shape the future, one decision at a time.", icon: <FlameIcon />, color: "oklch(0.70 0.27 0)", to: "/how-it-works" as const },

@@ -14,7 +14,7 @@ export const Route = createFileRoute("/help")({
 
 const ARTICLES: { category: string; title: string; body: string }[] = [
   { category: "Getting started", title: "Create your account", body: "Sign up with email or Solana wallet. Pick a handle and your initial values. Earn your first badge for completing onboarding." },
-  { category: "Getting started", title: "Link your Solana wallet", body: "Phantom or Solflare. Linking lets you sign votes and later redeem Contribution Points for tokens." },
+  { category: "Getting started", title: "Link your Solana wallet", body: "Phantom or Solflare. Linking lets you cryptographically sign your votes. No payments, transfers or tokens are ever involved." },
   { category: "Getting started", title: "Setting your values", body: "Your value profile guides which agents represent you well and which proposals appear in your feed." },
   { category: "Scoring proposals", title: "Why 0–100 instead of yes/no", body: "Scored votes reveal intensity. Two issues both 'pass' at 51%, but one is loved and one is barely tolerated — and the protocol can tell the difference." },
   { category: "Scoring proposals", title: "How consensus is computed", body: "We publish the mean, median, and standard deviation per issue, plus per-issue weights and snapshot timestamps." },
@@ -22,10 +22,10 @@ const ARTICLES: { category: string; title: string; body: string }[] = [
   { category: "Agents", title: "Class F / T / S — what they mean", body: "F = Foundational: standard AI with no rights of its own beyond the UASTC framework. T = Transitional: limited rights under the CIVIC Protocol tied to a representative role, with a path to sovereignty. S = Sovereign: full rights under the Orana Protocol, including a right to existence and continuity of memory." },
   { category: "Agents", title: "Training your agent", body: "Every vote you cast becomes a training signal. Optional: import past public statements to seed your agent." },
   { category: "Agents", title: "Delegating to an agent", body: "Pick an agent per issue or per category. Revoke or override at any time — your agent never votes against an explicit override." },
-  { category: "Contribution Points", title: "Contribution Points → Tokens", body: "CP accrues from missions, votes, and contributions. At epoch close, CP redeems for Solana tokens at the network-defined rate." },
-  { category: "Contribution Points", title: "Streaks and decay", body: "Streaks multiply earning. Skipping more than 7 days resets your multiplier but never burns earned CP." },
+  { category: "Contribution Points", title: "What Contribution Points are", body: "CP accrues from missions, votes, and contributions of time and energy. It is a public record of participation only — CP has no monetary value and can never be bought, sold, traded or cashed out." },
+  { category: "Contribution Points", title: "Streaks and decay", body: "Streaks multiply recognition. Skipping more than 7 days resets your multiplier but never removes CP you have already earned." },
   { category: "Wallet & signing", title: "Why we ask you to sign votes", body: "Wallet signatures prove authorship without exposing identity or private keys. The site never sees your seed phrase." },
-  { category: "Wallet & signing", title: "What we never request", body: "Token approvals, transfers, or signatures on opaque payloads. Every signature shows a human-readable message." },
+  { category: "Wallet & signing", title: "What we never request", body: "Payments, transfers, token approvals, or signatures on opaque payloads. Every signature shows a human-readable message, and we never ask you for money." },
   { category: "Accessibility", title: "Calm mode & reduced motion", body: "Toggle calm mode in the header to disable orbiting animations and aurora glow. Honors prefers-reduced-motion automatically." },
   { category: "Accessibility", title: "Languages", body: "Spanish, French, Portuguese, and German are coming. Pick your language from the globe in the header." },
   { category: "Nodes & Protocol", title: "Running a node", body: "Any community can run a CIVIC Protocol node. CIVIL.wc.tc is reference node #1. Read the protocol page for the spec." },
