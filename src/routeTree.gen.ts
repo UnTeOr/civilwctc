@@ -21,6 +21,7 @@ import { Route as LeaderboardRouteImport } from './routes/leaderboard'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as HelpRouteImport } from './routes/help'
 import { Route as GroupsRouteImport } from './routes/groups'
+import { Route as ContributeRouteImport } from './routes/contribute'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AgentsRouteImport } from './routes/agents'
 import { Route as AboutRouteImport } from './routes/about'
@@ -101,6 +102,11 @@ const HelpRoute = HelpRouteImport.update({
 const GroupsRoute = GroupsRouteImport.update({
   id: '/groups',
   path: '/groups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContributeRoute = ContributeRouteImport.update({
+  id: '/contribute',
+  path: '/contribute',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -214,6 +220,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/agents': typeof AgentsRouteWithChildren
   '/auth': typeof AuthRoute
+  '/contribute': typeof ContributeRoute
   '/groups': typeof GroupsRouteWithChildren
   '/help': typeof HelpRoute
   '/how-it-works': typeof HowItWorksRoute
@@ -247,6 +254,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/contribute': typeof ContributeRoute
   '/help': typeof HelpRoute
   '/how-it-works': typeof HowItWorksRoute
   '/leaderboard': typeof LeaderboardRoute
@@ -281,6 +289,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/agents': typeof AgentsRouteWithChildren
   '/auth': typeof AuthRoute
+  '/contribute': typeof ContributeRoute
   '/groups': typeof GroupsRouteWithChildren
   '/help': typeof HelpRoute
   '/how-it-works': typeof HowItWorksRoute
@@ -317,6 +326,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/agents'
     | '/auth'
+    | '/contribute'
     | '/groups'
     | '/help'
     | '/how-it-works'
@@ -350,6 +360,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/auth'
+    | '/contribute'
     | '/help'
     | '/how-it-works'
     | '/leaderboard'
@@ -383,6 +394,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/agents'
     | '/auth'
+    | '/contribute'
     | '/groups'
     | '/help'
     | '/how-it-works'
@@ -419,6 +431,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AgentsRoute: typeof AgentsRouteWithChildren
   AuthRoute: typeof AuthRoute
+  ContributeRoute: typeof ContributeRoute
   GroupsRoute: typeof GroupsRouteWithChildren
   HelpRoute: typeof HelpRoute
   HowItWorksRoute: typeof HowItWorksRoute
@@ -522,6 +535,13 @@ declare module '@tanstack/react-router' {
       path: '/groups'
       fullPath: '/groups'
       preLoaderRoute: typeof GroupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contribute': {
+      id: '/contribute'
+      path: '/contribute'
+      fullPath: '/contribute'
+      preLoaderRoute: typeof ContributeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -740,6 +760,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AgentsRoute: AgentsRouteWithChildren,
   AuthRoute: AuthRoute,
+  ContributeRoute: ContributeRoute,
   GroupsRoute: GroupsRouteWithChildren,
   HelpRoute: HelpRoute,
   HowItWorksRoute: HowItWorksRoute,

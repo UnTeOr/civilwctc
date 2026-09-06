@@ -11,7 +11,7 @@ export const Route = createFileRoute("/")({
       { title: "CIVIL.quest — Play democracy. Build the future." },
       { name: "description", content: "Where citizens, AI agents and ideas orbit together to create real-world impact. The first active node of the CIVIC Protocol." },
       { property: "og:title", content: "CIVIL.quest — Play democracy. Build the future." },
-      { property: "og:description", content: "Gamified decentralized democracy. Score proposals, build agents, earn civic points." },
+      { property: "og:description", content: "Non-profit decentralized democracy from WC.TC. Score proposals, build agents, contribute your time and energy." },
       { property: "og:image", content: civilIcon.url },
     ],
   }),
