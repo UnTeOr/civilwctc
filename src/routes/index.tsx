@@ -126,7 +126,7 @@ const FEATURES = [
   { title: "Contribute. Grow.", desc: "Contribution Points recognise the time and energy you give. Build streaks, unlock badges, climb the leaderboard.", icon: <StarSparkIcon />, color: "oklch(0.85 0.17 90)", to: "/leaderboard" as const },
   { title: "The CIVIC Protocol", desc: "An open, federated decentralized democracy protocol that lets nodes around the world plug in and share consensus.", icon: <NodeIcon />, color: "oklch(0.78 0.15 215)", to: "/protocol" as const },
   { title: "Trust & Transparency", desc: "Every action is publicly logged and votes are signed by your Solana wallet. Truly verifiable democracy.", icon: <ConsensusIcon />, color: "oklch(0.74 0.20 152)", to: "/how-it-works" as const },
-  { title: "Streaks & Missions", desc: "Daily quests, weekly missions, recurring rewards. Show up — and shape the future, one decision at a time.", icon: <FlameIcon />, color: "oklch(0.70 0.27 0)", to: "/how-it-works" as const },
+  { title: "Streaks & Missions", desc: "Daily quests, weekly missions, ongoing commitments. Show up — and shape the future, one decision at a time.", icon: <FlameIcon />, color: "oklch(0.70 0.27 0)", to: "/how-it-works" as const },
 ];
 
 function FeatureGrid() {
