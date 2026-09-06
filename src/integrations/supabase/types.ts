@@ -925,6 +925,126 @@ export type Database = {
         }
         Relationships: []
       }
+      network_action_totals: {
+        Row: {
+          action_id: string
+          approval: number | null
+          node_slug: string
+          synced_at: string
+          updated_at: string | null
+          votes_against: number
+          votes_for: number
+        }
+        Insert: {
+          action_id: string
+          approval?: number | null
+          node_slug: string
+          synced_at?: string
+          updated_at?: string | null
+          votes_against?: number
+          votes_for?: number
+        }
+        Update: {
+          action_id?: string
+          approval?: number | null
+          node_slug?: string
+          synced_at?: string
+          updated_at?: string | null
+          votes_against?: number
+          votes_for?: number
+        }
+        Relationships: []
+      }
+      network_actions: {
+        Row: {
+          closes_at: string | null
+          id: string
+          origin_node: string
+          status: string | null
+          summary: string | null
+          synced_at: string
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          closes_at?: string | null
+          id: string
+          origin_node: string
+          status?: string | null
+          summary?: string | null
+          synced_at?: string
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          closes_at?: string | null
+          id?: string
+          origin_node?: string
+          status?: string | null
+          summary?: string | null
+          synced_at?: string
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      network_identities: {
+        Row: {
+          also_on: string[]
+          did: string
+          display_name: string | null
+          home_node: string
+          synced_at: string
+          type: string | null
+          updated_at: string | null
+          username: string | null
+        }
+        Insert: {
+          also_on?: string[]
+          did: string
+          display_name?: string | null
+          home_node: string
+          synced_at?: string
+          type?: string | null
+          updated_at?: string | null
+          username?: string | null
+        }
+        Update: {
+          also_on?: string[]
+          did?: string
+          display_name?: string | null
+          home_node?: string
+          synced_at?: string
+          type?: string | null
+          updated_at?: string | null
+          username?: string | null
+        }
+        Relationships: []
+      }
+      network_nodes: {
+        Row: {
+          name: string
+          slug: string
+          status: string
+          synced_at: string
+          url: string | null
+        }
+        Insert: {
+          name: string
+          slug: string
+          status?: string
+          synced_at?: string
+          url?: string | null
+        }
+        Update: {
+          name?: string
+          slug?: string
+          status?: string
+          synced_at?: string
+          url?: string | null
+        }
+        Relationships: []
+      }
       pc_ledger: {
         Row: {
           amount: number
@@ -1185,6 +1305,33 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      protocol_sync_state: {
+        Row: {
+          id: string
+          last_error: string | null
+          last_pushed_at: string | null
+          last_run_at: string | null
+          last_synced_at: string | null
+          updated_at: string
+        }
+        Insert: {
+          id: string
+          last_error?: string | null
+          last_pushed_at?: string | null
+          last_run_at?: string | null
+          last_synced_at?: string | null
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          last_error?: string | null
+          last_pushed_at?: string | null
+          last_run_at?: string | null
+          last_synced_at?: string | null
+          updated_at?: string
+        }
+        Relationships: []
       }
       score_votes: {
         Row: {
