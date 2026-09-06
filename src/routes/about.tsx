@@ -50,7 +50,7 @@ function AboutPage() {
           to scale across nodes, cities, and eventually the planet. We believe
           civic participation should feel meaningful and engaging, while
           producing the most rigorous, transparent, and thoughtful collective
-          decisions ever made. Nothing here is for sale.
+          decisions ever made.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link to="/protocol" className="h-11 px-5 inline-flex items-center rounded-lg bg-aurora text-white font-medium glow-electric">Read the protocol</Link>
@@ -77,8 +77,9 @@ function AboutPage() {
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               Because WC.TC is a charity, this platform has no owners to enrich, no investors to repay,
-              and no revenue to chase. Everything the collaborative builds is offered freely, and everything
-              it runs on is contributed: time, energy, expertise, care, commitment, and honest attention.
+              but we still do have bills to pay. Everything the collaborative builds is offered as a
+              freemium model, and everything it runs is contributed: time, energy, expertise, care,
+              commitment, and honest attention.
             </p>
             <div className="mt-5 flex flex-wrap gap-4 text-sm">
               <a href="https://wc.tc" className="text-electric hover:underline">wc.tc →</a>
