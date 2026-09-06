@@ -62,8 +62,8 @@ function Hero() {
         </h1>
         <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
           Where citizens, agents, and ideas orbit together to create real-world
-          impact. Score proposals, build your representative agent, earn political
-          capital — and help build the future of decentralized democracy.
+          impact. Score proposals, build your representative agent, contribute your
+          time and energy — a non-profit platform from WC.TC.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link to="/proposals" className="inline-flex items-center gap-2 h-12 px-6 rounded-lg bg-aurora text-white font-medium glow-electric hover:opacity-95 transition">
@@ -122,7 +122,7 @@ function Stats() {
 
 const FEATURES = [
   { title: "Representative Agents", desc: "Create an agent that votes the way you do, learns your values and represents you.", icon: <AgentIcon />, color: "oklch(0.78 0.15 215)", to: "/agents" as const },
-  { title: "Score Real Proposals", desc: "Vote 0–100 on real-world issues. Watch live consensus form. Earn political capital for every contribution.", icon: <ProposalIcon />, color: "oklch(0.66 0.22 300)", to: "/proposals" as const },
+  { title: "Score Real Proposals", desc: "Vote 0–100 on real-world issues. Watch live consensus form. Every contribution is recognised and recorded.", icon: <ProposalIcon />, color: "oklch(0.66 0.22 300)", to: "/proposals" as const },
   { title: "Earn. Level Up.", desc: "Political Capital can be redeemed as tokens. Build streaks, unlock badges, climb the leaderboard.", icon: <StarSparkIcon />, color: "oklch(0.85 0.17 90)", to: "/leaderboard" as const },
   { title: "The CIVIC Protocol", desc: "An open, federated decentralized democracy protocol that lets nodes around the world plug in and share consensus.", icon: <NodeIcon />, color: "oklch(0.78 0.15 215)", to: "/protocol" as const },
   { title: "Trust & Transparency", desc: "Every action is publicly logged and votes are signed by your Solana wallet. Truly verifiable democracy.", icon: <ConsensusIcon />, color: "oklch(0.74 0.20 152)", to: "/how-it-works" as const },
@@ -162,7 +162,7 @@ const STEPS = [
   { n: "2", title: "Explore", desc: "Discover proposals and ideas across causes you care about." },
   { n: "3", title: "Participate", desc: "Score 0–100, debate, deliberate — alone or via your agent." },
   { n: "4", title: "Impact", desc: "See real change happen as consensus drives action." },
-  { n: "5", title: "Evolve", desc: "Earn points. Level up. Shape the next era of democracy." },
+  { n: "5", title: "Evolve", desc: "Grow your contribution. Level up. Shape the next era of democracy." },
 ];
 
 function HowItWorks() {

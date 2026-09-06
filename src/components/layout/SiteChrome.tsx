@@ -178,7 +178,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-white/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 text-xs text-muted-foreground flex flex-wrap justify-between gap-2">
-          <span>© {new Date().getFullYear()} CIVIL.wc.tc — Govern. Collaborate. Evolve.</span>
+          <span>© {new Date().getFullYear()} WC.TC · CIVIL.wc.tc — Govern. Collaborate. Evolve.</span>
           <span className="flex gap-3">
             <a href="/api/public/feed.xml" className="hover:text-foreground">RSS</a>
             <a href="/api/public/feed.json" className="hover:text-foreground">JSON</a>
