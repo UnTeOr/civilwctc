@@ -42,7 +42,7 @@ function GroupsPage() {
         </div>
       </div>
 
-      {data.length === 0 ? (
+      {data.length === 0 && network.organizations.length === 0 ? (
         <div className="mt-12 neon-card p-10 text-center text-muted-foreground">
           No constituent groups yet. <Link to="/groups/new" className="text-electric">Start the first coalition →</Link>
         </div>
@@ -57,6 +57,7 @@ function GroupsPage() {
                   {g.username && <div className="text-xs text-electric">@{g.username}</div>}
                 </div>
               </div>
+              <div className="mt-3"><NodeTag name={LOCAL_NODE_NAME} local /></div>
               {g.description && <p className="mt-3 text-sm text-muted-foreground line-clamp-3">{g.description}</p>}
               {(g.focus_areas ?? []).length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-1.5">
@@ -66,6 +67,20 @@ function GroupsPage() {
                 </div>
               )}
             </Link>
+          ))}
+
+          {network.organizations.map((o: any) => (
+            <div key={o.did} className="neon-card p-6">
+              <div className="flex items-center gap-3">
+                <Users className="h-5 w-5 text-violet" />
+                <div>
+                  <h3 className="font-display text-xl font-semibold">{o.display_name ?? o.username ?? "Constituent group"}</h3>
+                  {o.username && <div className="text-xs text-electric">@{o.username}</div>}
+                </div>
+              </div>
+              <div className="mt-3"><NodeTag name={o.node_name} /></div>
+              <p className="mt-3 text-[11px] text-muted-foreground break-all">{o.did}</p>
+            </div>
           ))}
         </div>
       )}
