@@ -34,25 +34,63 @@ function AuthPage() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Porting an existing CIVIC Protocol identity from another node.
+  const [porting, setPorting] = useState(false);
+  const [didInput, setDidInput] = useState("");
+  const [lookupBusy, setLookupBusy] = useState(false);
+  const [ported, setPorted] = useState<null | {
+    did: string;
+    username: string | null;
+    displayName: string | null;
+    type: string;
+    homeNode: string;
+    alreadyOnThisNode: boolean;
+  }>(null);
+  const [setHome, setSetHome] = useState(false);
+
+  async function handleLookup() {
+    setError(null);
+    setPorted(null);
+    setLookupBusy(true);
+    try {
+      const res = await lookupNetworkIdentity({ data: { query: didInput.trim() } });
+      if (!res.found) {
+        throw new Error("No identity with that DID or @username is on the network mirror yet. Sync it on your home node first.");
+      }
+      if (res.alreadyOnThisNode) throw new Error("That identity is already active on CIVIL.wc.tc.");
+      setPorted(res);
+      if (res.username) setUsername(res.username);
+      if (res.type === "agent" || res.type === "organization") setAccountType(res.type);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Lookup failed.");
+    } finally {
+      setLookupBusy(false);
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
     setBusy(true);
     try {
       if (isSignup) {
-        const handle = username.trim().replace(/^@/, "");
+        if (porting && !ported) throw new Error("Look up your existing identity first.");
+        const handle = (porting ? ported!.username ?? username : username).trim().replace(/^@/, "");
         if (!/^[a-zA-Z0-9_]{3,24}$/.test(handle)) {
           throw new Error("Username must be 3–24 letters, numbers, or underscores.");
         }
-        const { error } = await supabase.auth.signUp({
+        const { data: signUpData, error } = await supabase.auth.signUp({
           email,
           password,
           options: {
             emailRedirectTo: `${window.location.origin}/`,
-            data: { username: handle, display_name: handle, account_type: accountType },
+            data: { username: handle, display_name: ported?.displayName ?? handle, account_type: accountType },
           },
         });
         if (error) throw error;
+        if (porting && ported && signUpData.session) {
+          await claimNetworkIdentity({ data: { did: ported.did, setHome } });
+        }
         navigate({ to: "/" });
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
@@ -65,6 +103,7 @@ function AuthPage() {
       setBusy(false);
     }
   }
+
 
   return (
     <div className="min-h-screen bg-hero relative">
