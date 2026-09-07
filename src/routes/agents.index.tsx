@@ -33,10 +33,16 @@ function AgentsPage() {
   const [type, setType] = useState<(typeof TYPES)[number]["v"]>("all");
   const [klass, setKlass] = useState<"all" | "F" | "T" | "S">("all");
   const fn = useServerFn(listAgents);
+  const netFn = useServerFn(getNetworkDirectory);
   const { data } = useSuspenseQuery({
     queryKey: ["agents", type, klass],
     queryFn: () => fn({ data: { agent_type: type, agent_class: klass } }),
   });
+  const { data: network } = useSuspenseQuery({
+    queryKey: ["network", "directory"],
+    queryFn: () => netFn(),
+  });
+  const networkAgents = type === "all" && klass === "all" ? network.agents : [];
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 lg:py-16">
