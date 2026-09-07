@@ -25,7 +25,10 @@ export const Route = createFileRoute("/network/identity/$did")({
 });
 
 function NetworkIdentityPage() {
-  const { identity, node } = Route.useLoaderData();
+  const { identity, node } = Route.useLoaderData() as unknown as {
+    identity: any;
+    node: { slug: string; name: string | null; url: string | null } | null;
+  };
   const violet = "oklch(0.66 0.22 300)";
   const isOrg = identity.type === "organization";
   const backTo = isOrg ? "/groups" : identity.type === "agent" ? "/agents" : "/nodes";

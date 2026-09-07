@@ -25,9 +25,13 @@ export const Route = createFileRoute("/network/action/$id")({
 });
 
 function NetworkActionPage() {
-  const { action, node, totals } = Route.useLoaderData();
+  const { action, node, totals } = Route.useLoaderData() as unknown as {
+    action: any;
+    node: { slug: string; name: string | null; url: string | null } | null;
+    totals: Array<{ node_slug: string; node_name: string; votes_for: number | null; votes_against: number | null; approval: number | null }>;
+  };
   const violet = "oklch(0.66 0.22 300)";
-  const votes = totals.reduce((s, t) => s + (t.votes_for ?? 0) + (t.votes_against ?? 0), 0);
+  const votes = totals.reduce((s: number, t)  => s + (t.votes_for ?? 0) + (t.votes_against ?? 0), 0);
   const approval = totals.find((t) => t.approval != null)?.approval ?? null;
 
   return (
