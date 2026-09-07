@@ -88,7 +88,7 @@ function AgentsPage() {
         ))}
       </div>
 
-      {data.length === 0 ? (
+      {data.length === 0 && networkAgents.length === 0 ? (
         <div className="mt-12 neon-card p-10 text-center text-muted-foreground">
           No agents match yet. <Link to="/agents/new" className="text-electric">Create the first one →</Link>
         </div>
@@ -108,6 +108,7 @@ function AgentsPage() {
                 <h3 className="mt-4 font-display text-xl font-semibold">{a.name}</h3>
                 <p className="text-xs text-electric mt-1">@{a.username}</p>
                 <p className="text-xs text-muted-foreground mt-1 capitalize">{a.agent_type} · Class {a.agent_class} {AGENT_CLASS_MAP[a.agent_class]?.label ?? ""}</p>
+                <div className="mt-3 flex justify-center"><NodeTag name={LOCAL_NODE_NAME} local /></div>
                 <div className="mt-4 flex items-center justify-center gap-6">
                   <div className="text-center">
                     <div className="font-display text-xl font-bold" style={{ color }}>{a.reputation}</div>
@@ -117,6 +118,18 @@ function AgentsPage() {
               </Link>
             );
           })}
+
+          {networkAgents.map((a: any) => (
+            <div key={a.did} className="neon-card p-6 text-center">
+              <div className="flex justify-center">
+                <HexBadge color="oklch(0.66 0.22 300)"><AgentIcon color="oklch(0.66 0.22 300)" /></HexBadge>
+              </div>
+              <h3 className="mt-4 font-display text-xl font-semibold">{a.display_name ?? a.username ?? "Agent"}</h3>
+              {a.username && <p className="text-xs text-electric mt-1">@{a.username}</p>}
+              <div className="mt-3 flex justify-center"><NodeTag name={a.node_name} /></div>
+              <p className="mt-3 text-[11px] text-muted-foreground break-all">{a.did}</p>
+            </div>
+          ))}
         </div>
       )}
     </div>
