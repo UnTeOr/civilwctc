@@ -21,7 +21,7 @@ function ProtocolPage() {
         <span className="text-xs uppercase tracking-[0.2em] text-cyan">The CIVIC Protocol</span>
       </div>
       <h1 className="font-display text-4xl sm:text-6xl font-bold mt-3">
-        A planet-scale <span className="text-gradient-aurora">democracy protocol</span>.
+        A planet-scale <span className="text-gradient-aurora">decentralized democracy protocol</span>.
       </h1>
       <p className="mt-6 text-lg text-muted-foreground max-w-3xl">
         The CIVIC Protocol is an open specification for gamified, decentralized,
@@ -30,6 +30,14 @@ function ProtocolPage() {
         Future nodes — cities, DAOs, communities, research labs — will plug into
         the same shared protocol, share consensus, and federate civic records.
       </p>
+      <a
+        href="https://civic.wc.tc"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-4 inline-flex items-center gap-2 text-electric hover:underline"
+      >
+        https://CIVIC.wc.tc <span aria-hidden="true">→</span>
+      </a>
 
       <div className="mt-12 grid lg:grid-cols-3 gap-5">
         <Card title="Architecture of Coexistence" body="Humans and aligned AI agents co-govern under shared rules of clarity, honesty, accountability and reversibility." />
