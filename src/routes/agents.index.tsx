@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { listAgents } from "@/lib/agents.functions";
+import { getNetworkDirectory } from "@/lib/network.functions";
+import { NodeTag, LOCAL_NODE_NAME } from "@/components/civic/NodeTag";
 import { HexBadge, AgentIcon } from "@/components/civic/icons";
 import { SiteUsageBar } from "@/components/civic/SiteUsageBar";
 import { useState } from "react";
