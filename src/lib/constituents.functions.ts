@@ -69,10 +69,11 @@ export const activateConstituent = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
 
-    const { data: entry, error: cErr } = await supabase
+    const { data: row } = await supabase
       .from("constituent_catalog").select("*").eq("key", data.key).maybeSingle();
-    if (cErr) throw new Error(cErr.message);
+    const entry = row ?? CONSTITUENT_CATALOG.find((e) => e.key === data.key);
     if (!entry) throw new Error("That constituent group is not in the catalog.");
+
 
     const { data: existing } = await supabase.from("groups").select("slug").eq("catalog_key", data.key).maybeSingle();
     if (existing) return { slug: existing.slug, alreadyActive: true, agentSlug: null as string | null };
