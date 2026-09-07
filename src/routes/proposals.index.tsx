@@ -3,6 +3,7 @@ import { useState } from "react";
 import { HexBadge, ProposalIcon } from "@/components/civic/icons";
 import { Flame, TrendingUp, Star, ArrowRight } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
+import { NodeTag, LOCAL_NODE_NAME } from "@/components/civic/NodeTag";
 
 export const Route = createFileRoute("/proposals/")({
   head: () => ({
