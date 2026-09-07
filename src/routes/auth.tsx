@@ -3,8 +3,10 @@ import { useState } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { LogoWordmark } from "@/components/brand/Logo";
-import { Mail, Lock, User, AlertCircle, Wallet, Building2, Bot } from "lucide-react";
+import { Mail, Lock, User, AlertCircle, Wallet, Building2, Bot, Globe, CheckCircle2 } from "lucide-react";
 import { useSolanaWallet } from "@/hooks/use-solana-wallet";
+import { lookupNetworkIdentity, claimNetworkIdentity } from "@/lib/identity-claim.functions";
+
 
 const searchSchema = z.object({
   mode: z.enum(["signin", "signup"]).optional().default("signin"),
@@ -32,25 +34,63 @@ function AuthPage() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Porting an existing CIVIC Protocol identity from another node.
+  const [porting, setPorting] = useState(false);
+  const [didInput, setDidInput] = useState("");
+  const [lookupBusy, setLookupBusy] = useState(false);
+  const [ported, setPorted] = useState<null | {
+    did: string;
+    username: string | null;
+    displayName: string | null;
+    type: string;
+    homeNode: string;
+    alreadyOnThisNode: boolean;
+  }>(null);
+  const [setHome, setSetHome] = useState(false);
+
+  async function handleLookup() {
+    setError(null);
+    setPorted(null);
+    setLookupBusy(true);
+    try {
+      const res = await lookupNetworkIdentity({ data: { query: didInput.trim() } });
+      if (!res.found) {
+        throw new Error("No identity with that DID or @username is on the network mirror yet. Sync it on your home node first.");
+      }
+      if (res.alreadyOnThisNode) throw new Error("That identity is already active on CIVIL.wc.tc.");
+      setPorted(res);
+      if (res.username) setUsername(res.username);
+      if (res.type === "agent" || res.type === "organization") setAccountType(res.type);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Lookup failed.");
+    } finally {
+      setLookupBusy(false);
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
     setBusy(true);
     try {
       if (isSignup) {
-        const handle = username.trim().replace(/^@/, "");
+        if (porting && !ported) throw new Error("Look up your existing identity first.");
+        const handle = (porting ? ported!.username ?? username : username).trim().replace(/^@/, "");
         if (!/^[a-zA-Z0-9_]{3,24}$/.test(handle)) {
           throw new Error("Username must be 3–24 letters, numbers, or underscores.");
         }
-        const { error } = await supabase.auth.signUp({
+        const { data: signUpData, error } = await supabase.auth.signUp({
           email,
           password,
           options: {
             emailRedirectTo: `${window.location.origin}/`,
-            data: { username: handle, display_name: handle, account_type: accountType },
+            data: { username: handle, display_name: ported?.displayName ?? handle, account_type: accountType },
           },
         });
         if (error) throw error;
+        if (porting && ported && signUpData.session) {
+          await claimNetworkIdentity({ data: { did: ported.did, setHome } });
+        }
         navigate({ to: "/" });
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
@@ -63,6 +103,7 @@ function AuthPage() {
       setBusy(false);
     }
   }
+
 
   return (
     <div className="min-h-screen bg-hero relative">
@@ -81,6 +122,57 @@ function AuthPage() {
           </p>
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+            {isSignup && (
+              <div className="rounded-lg border border-white/10 bg-white/[0.03] p-3">
+                <label className="flex items-start gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={porting}
+                    onChange={(e) => { setPorting(e.target.checked); setPorted(null); setError(null); }}
+                    className="mt-0.5 h-4 w-4 accent-[oklch(0.72_0.17_200)]"
+                  />
+                  <span className="text-sm">
+                    I already have a CIVIC identity on another node
+                    <span className="block text-xs text-muted-foreground">Port your @username and DID — one identity across every node.</span>
+                  </span>
+                </label>
+
+                {porting && (
+                  <div className="mt-3 space-y-2">
+                    <Field icon={<Globe className="h-4 w-4" />} label="DID or @username">
+                      <input
+                        value={didInput}
+                        onChange={(e) => { setDidInput(e.target.value); setPorted(null); }}
+                        placeholder="did:civic:… or @yourhandle"
+                        className="w-full bg-transparent outline-none text-sm py-2.5 placeholder:text-muted-foreground/60"
+                      />
+                    </Field>
+                    <button
+                      type="button"
+                      onClick={handleLookup}
+                      disabled={lookupBusy || didInput.trim().length < 3}
+                      className="w-full h-9 rounded-lg border border-violet/40 text-violet text-sm hover:bg-violet/10 disabled:opacity-50 transition"
+                    >
+                      {lookupBusy ? "Checking the network…" : "Find my identity"}
+                    </button>
+
+                    {ported && (
+                      <div className="rounded-lg border border-electric/30 bg-electric/5 p-3 text-xs space-y-1">
+                        <div className="flex items-center gap-1.5 text-electric font-medium">
+                          <CheckCircle2 className="h-3.5 w-3.5" />
+                          @{ported.username} · home node {ported.homeNode}
+                        </div>
+                        <div className="font-mono break-all text-muted-foreground">{ported.did}</div>
+                        <label className="flex items-center gap-2 pt-1 cursor-pointer">
+                          <input type="checkbox" checked={setHome} onChange={(e) => setSetHome(e.target.checked)} className="h-3.5 w-3.5 accent-[oklch(0.72_0.17_200)]" />
+                          <span className="text-muted-foreground">Make CIVIL.wc.tc my home node</span>
+                        </label>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
             {isSignup && (
               <div>
                 <span className="text-xs uppercase tracking-wider text-muted-foreground">Account type</span>
@@ -109,12 +201,14 @@ function AuthPage() {
               <Field icon={<User className="h-4 w-4" />} label="Username">
                 <input
                   required
+                  readOnly={porting && !!ported}
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="@yourhandle"
-                  className="w-full bg-transparent outline-none text-sm py-2.5 placeholder:text-muted-foreground/60"
+                  className="w-full bg-transparent outline-none text-sm py-2.5 placeholder:text-muted-foreground/60 read-only:text-muted-foreground"
                 />
               </Field>
+
             )}
             <Field icon={<Mail className="h-4 w-4" />} label="Email">
               <input
