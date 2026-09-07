@@ -144,9 +144,35 @@ function ProposalsPage() {
             </Link>
           );
         })}
+
+        {activeFilter === "All" && network.actions.map((a: any) => (
+          <div key={a.id} className="neon-card p-5 block">
+            <div className="flex justify-between items-start">
+              <HexBadge color="oklch(0.66 0.22 300)"><ProposalIcon color="oklch(0.66 0.22 300)" /></HexBadge>
+              {a.status && (
+                <span className="inline-flex items-center gap-1 text-[10px] uppercase font-bold px-2 py-1 rounded-full bg-violet/15 text-violet">
+                  {a.status}
+                </span>
+              )}
+            </div>
+            <h3 className="mt-4 font-display text-lg font-semibold">{a.title}</h3>
+            <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{a.summary}</p>
+            <div className="mt-2 flex flex-wrap gap-1">
+              <NodeTag name={a.node_name} />
+              <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/5 text-muted-foreground border border-white/10">{a.id}</span>
+            </div>
+            <div className="mt-5 flex items-center justify-between">
+              <div className="text-xs text-muted-foreground"><span className="text-foreground font-medium">{a.votes.toLocaleString()}</span> votes on the network</div>
+              <FeasibilityRing pct={Math.round(a.approval ?? 0)} color="oklch(0.66 0.22 300)" />
+            </div>
+            <div className="mt-5 pt-4 border-t border-white/5 text-xs text-muted-foreground">
+              Mirrored from {a.node_name} — score it on its home node.
+            </div>
+          </div>
+        ))}
       </div>
 
-      {filtered.length === 0 && (
+      {filtered.length === 0 && (activeFilter !== "All" || network.actions.length === 0) && (
         <p className="mt-12 text-center text-muted-foreground">No action items match this filter.</p>
       )}
     </div>
