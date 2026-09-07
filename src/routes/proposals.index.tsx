@@ -43,7 +43,7 @@ const CATEGORY_COLOR: Record<string, string> = {
 };
 
 function ProposalsPage() {
-  const { proposals } = Route.useLoaderData();
+  const { proposals, network } = Route.useLoaderData();
   const { user } = useAuth();
   const [activeFilter, setActiveFilter] = useState("All");
 
