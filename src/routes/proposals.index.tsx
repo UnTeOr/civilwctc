@@ -116,6 +116,7 @@ function ProposalsPage() {
               <h3 className="mt-4 font-display text-lg font-semibold">{p.title}</h3>
               <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{p.summary}</p>
               <div className="mt-2 flex flex-wrap gap-1">
+                <NodeTag name={LOCAL_NODE_NAME} local />
                 {p.public_id && (
                   <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/5 text-muted-foreground border border-white/10">
                     {p.public_id}
