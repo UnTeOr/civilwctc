@@ -3,8 +3,10 @@ import { useState } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { LogoWordmark } from "@/components/brand/Logo";
-import { Mail, Lock, User, AlertCircle, Wallet, Building2, Bot } from "lucide-react";
+import { Mail, Lock, User, AlertCircle, Wallet, Building2, Bot, Globe, CheckCircle2 } from "lucide-react";
 import { useSolanaWallet } from "@/hooks/use-solana-wallet";
+import { lookupNetworkIdentity, claimNetworkIdentity } from "@/lib/identity-claim.functions";
+
 
 const searchSchema = z.object({
   mode: z.enum(["signin", "signup"]).optional().default("signin"),
