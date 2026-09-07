@@ -15,11 +15,18 @@ export const Route = createFileRoute("/proposals/")({
   }),
   loader: async ({ context }) => {
     const { listProposals } = await import("@/lib/proposals.functions");
-    const proposals = await context.queryClient.ensureQueryData({
-      queryKey: ["proposals", "list"],
-      queryFn: () => listProposals(),
-    });
-    return { proposals };
+    const { getNetworkDirectory } = await import("@/lib/network.functions");
+    const [proposals, network] = await Promise.all([
+      context.queryClient.ensureQueryData({
+        queryKey: ["proposals", "list"],
+        queryFn: () => listProposals(),
+      }),
+      context.queryClient.ensureQueryData({
+        queryKey: ["network", "directory"],
+        queryFn: () => getNetworkDirectory(),
+      }),
+    ]);
+    return { proposals, network };
   },
   component: ProposalsPage,
 });
