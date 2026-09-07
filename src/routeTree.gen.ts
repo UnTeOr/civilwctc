@@ -36,6 +36,8 @@ import { Route as ConstituentsCatalogRouteImport } from './routes/constituents.c
 import { Route as AgentsSlugRouteImport } from './routes/agents.$slug'
 import { Route as AuthenticatedMissionsRouteImport } from './routes/_authenticated/missions'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as NetworkIdentityDidRouteImport } from './routes/network.identity.$did'
+import { Route as NetworkActionIdRouteImport } from './routes/network.action.$id'
 import { Route as ApiPublicProtocolSyncRouteImport } from './routes/api/public/protocol-sync'
 import { Route as ApiPublicFeedDotxmlRouteImport } from './routes/api/public/feed[.]xml'
 import { Route as ApiPublicFeedDotjsonRouteImport } from './routes/api/public/feed[.]json'
@@ -178,6 +180,16 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
+const NetworkIdentityDidRoute = NetworkIdentityDidRouteImport.update({
+  id: '/network/identity/$did',
+  path: '/network/identity/$did',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkActionIdRoute = NetworkActionIdRouteImport.update({
+  id: '/network/action/$id',
+  path: '/network/action/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicProtocolSyncRoute = ApiPublicProtocolSyncRouteImport.update({
   id: '/api/public/protocol-sync',
   path: '/api/public/protocol-sync',
@@ -249,6 +261,8 @@ export interface FileRoutesByFullPath {
   '/api/public/feed.json': typeof ApiPublicFeedDotjsonRoute
   '/api/public/feed.xml': typeof ApiPublicFeedDotxmlRoute
   '/api/public/protocol-sync': typeof ApiPublicProtocolSyncRoute
+  '/network/action/$id': typeof NetworkActionIdRoute
+  '/network/identity/$did': typeof NetworkIdentityDidRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -281,6 +295,8 @@ export interface FileRoutesByTo {
   '/api/public/feed.json': typeof ApiPublicFeedDotjsonRoute
   '/api/public/feed.xml': typeof ApiPublicFeedDotxmlRoute
   '/api/public/protocol-sync': typeof ApiPublicProtocolSyncRoute
+  '/network/action/$id': typeof NetworkActionIdRoute
+  '/network/identity/$did': typeof NetworkIdentityDidRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -318,6 +334,8 @@ export interface FileRoutesById {
   '/api/public/feed.json': typeof ApiPublicFeedDotjsonRoute
   '/api/public/feed.xml': typeof ApiPublicFeedDotxmlRoute
   '/api/public/protocol-sync': typeof ApiPublicProtocolSyncRoute
+  '/network/action/$id': typeof NetworkActionIdRoute
+  '/network/identity/$did': typeof NetworkIdentityDidRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -355,6 +373,8 @@ export interface FileRouteTypes {
     | '/api/public/feed.json'
     | '/api/public/feed.xml'
     | '/api/public/protocol-sync'
+    | '/network/action/$id'
+    | '/network/identity/$did'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -387,6 +407,8 @@ export interface FileRouteTypes {
     | '/api/public/feed.json'
     | '/api/public/feed.xml'
     | '/api/public/protocol-sync'
+    | '/network/action/$id'
+    | '/network/identity/$did'
   id:
     | '__root__'
     | '/'
@@ -423,6 +445,8 @@ export interface FileRouteTypes {
     | '/api/public/feed.json'
     | '/api/public/feed.xml'
     | '/api/public/protocol-sync'
+    | '/network/action/$id'
+    | '/network/identity/$did'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -449,6 +473,8 @@ export interface RootRouteChildren {
   ApiPublicFeedDotjsonRoute: typeof ApiPublicFeedDotjsonRoute
   ApiPublicFeedDotxmlRoute: typeof ApiPublicFeedDotxmlRoute
   ApiPublicProtocolSyncRoute: typeof ApiPublicProtocolSyncRoute
+  NetworkActionIdRoute: typeof NetworkActionIdRoute
+  NetworkIdentityDidRoute: typeof NetworkIdentityDidRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -642,6 +668,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/network/identity/$did': {
+      id: '/network/identity/$did'
+      path: '/network/identity/$did'
+      fullPath: '/network/identity/$did'
+      preLoaderRoute: typeof NetworkIdentityDidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/network/action/$id': {
+      id: '/network/action/$id'
+      path: '/network/action/$id'
+      fullPath: '/network/action/$id'
+      preLoaderRoute: typeof NetworkActionIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/protocol-sync': {
       id: '/api/public/protocol-sync'
       path: '/api/public/protocol-sync'
@@ -778,6 +818,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicFeedDotjsonRoute: ApiPublicFeedDotjsonRoute,
   ApiPublicFeedDotxmlRoute: ApiPublicFeedDotxmlRoute,
   ApiPublicProtocolSyncRoute: ApiPublicProtocolSyncRoute,
+  NetworkActionIdRoute: NetworkActionIdRoute,
+  NetworkIdentityDidRoute: NetworkIdentityDidRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

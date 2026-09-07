@@ -70,7 +70,7 @@ function GroupsPage() {
           ))}
 
           {network.organizations.map((o: any) => (
-            <div key={o.did} className="neon-card p-6">
+            <Link key={o.did} to="/network/identity/$did" params={{ did: o.did }} className="neon-card p-6 hover:border-violet transition">
               <div className="flex items-center gap-3">
                 <Users className="h-5 w-5 text-violet" />
                 <div>
@@ -80,7 +80,7 @@ function GroupsPage() {
               </div>
               <div className="mt-3"><NodeTag name={o.node_name} /></div>
               <p className="mt-3 text-[11px] text-muted-foreground break-all">{o.did}</p>
-            </div>
+            </Link>
           ))}
         </div>
       )}

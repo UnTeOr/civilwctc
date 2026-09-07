@@ -146,7 +146,7 @@ function ProposalsPage() {
         })}
 
         {activeFilter === "All" && network.actions.map((a: any) => (
-          <div key={a.id} className="neon-card p-5 block">
+          <Link key={a.id} to="/network/action/$id" params={{ id: a.id }} className="neon-card p-5 block hover:-translate-y-0.5 transition-transform">
             <div className="flex justify-between items-start">
               <HexBadge color="oklch(0.66 0.22 300)"><ProposalIcon color="oklch(0.66 0.22 300)" /></HexBadge>
               {a.status && (
@@ -168,7 +168,7 @@ function ProposalsPage() {
             <div className="mt-5 pt-4 border-t border-white/5 text-xs text-muted-foreground">
               Mirrored from {a.node_name} — score it on its home node.
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

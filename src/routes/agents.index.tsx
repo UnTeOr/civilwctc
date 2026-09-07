@@ -120,7 +120,7 @@ function AgentsPage() {
           })}
 
           {networkAgents.map((a: any) => (
-            <div key={a.did} className="neon-card p-6 text-center">
+            <Link key={a.did} to="/network/identity/$did" params={{ did: a.did }} className="neon-card p-6 text-center hover:border-violet transition">
               <div className="flex justify-center">
                 <HexBadge color="oklch(0.66 0.22 300)"><AgentIcon color="oklch(0.66 0.22 300)" /></HexBadge>
               </div>
@@ -128,7 +128,7 @@ function AgentsPage() {
               {a.username && <p className="text-xs text-electric mt-1">@{a.username}</p>}
               <div className="mt-3 flex justify-center"><NodeTag name={a.node_name} /></div>
               <p className="mt-3 text-[11px] text-muted-foreground break-all">{a.did}</p>
-            </div>
+            </Link>
           ))}
         </div>
       )}
