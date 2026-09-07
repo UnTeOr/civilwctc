@@ -5,6 +5,8 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
 import { protocolFor } from "@/lib/protocols";
+import { CONSTITUENT_CATALOG, type CatalogEntry } from "@/lib/constituent-catalog.data";
+
 
 const publicClient = () =>
   createClient<Database>(process.env.SUPABASE_URL!, process.env.SUPABASE_PUBLISHABLE_KEY!, {
@@ -24,19 +26,37 @@ export const listCatalog = createServerFn({ method: "GET" })
   .inputValidator((d) => z.object({ q: z.string().optional() }).optional().parse(d ?? {}))
   .handler(async ({ data }) => {
     const sb = publicClient();
-    const [{ data: rows, error }, { data: live }] = await Promise.all([
+    const [{ data: rows }, { data: live }] = await Promise.all([
       sb.from("constituent_catalog").select("*").order("sort", { ascending: true }),
       sb.from("groups").select("catalog_key, slug, name, username").not("catalog_key", "is", null),
     ]);
-    if (error) throw new Error(error.message);
+
+    // Static reference catalog, overlaid by anything stored locally on this node.
+    const byKey = new Map<string, CatalogEntry>();
+    for (const e of CONSTITUENT_CATALOG) byKey.set(e.key, e);
+    for (const r of rows ?? []) {
+      byKey.set(r.key, {
+        key: r.key,
+        master_category: r.master_category,
+        group_type: r.group_type,
+        scope: r.scope as CatalogEntry["scope"],
+        name: r.name,
+        description: r.description,
+        examples: r.examples ?? [],
+        sort: r.sort,
+      });
+    }
+    const all = Array.from(byKey.values()).sort((a, b) => a.sort - b.sort || a.key.localeCompare(b.key));
+
     const activeMap: Record<string, { slug: string; name: string; username: string | null }> = {};
     for (const g of live ?? []) if (g.catalog_key) activeMap[g.catalog_key] = { slug: g.slug, name: g.name, username: g.username };
     const q = data?.q?.toLowerCase().trim();
-    const filtered = (rows ?? []).filter((r) =>
+    const filtered = all.filter((r) =>
       !q || r.name.toLowerCase().includes(q) || (r.description ?? "").toLowerCase().includes(q) ||
       r.master_category.toLowerCase().includes(q) || (r.group_type ?? "").toLowerCase().includes(q));
     return { entries: filtered, active: activeMap };
   });
+
 
 /**
  * Activate a catalog entry as a live constituent TONDO.
