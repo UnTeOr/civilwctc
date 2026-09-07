@@ -20,7 +20,9 @@ export const Route = createFileRoute("/groups/")({
 
 function GroupsPage() {
   const fn = useServerFn(listGroups);
+  const netFn = useServerFn(getNetworkDirectory);
   const { data } = useSuspenseQuery({ queryKey: ["groups"], queryFn: () => fn() });
+  const { data: network } = useSuspenseQuery({ queryKey: ["network", "directory"], queryFn: () => netFn() });
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 lg:py-16">
