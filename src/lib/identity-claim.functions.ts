@@ -3,7 +3,9 @@ import { z } from "zod";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import { NODE_SLUG, PROTOCOL_BASE } from "@/lib/civic-sync.server";
+
+const NODE_SLUG = "civilwctc";
+const PROTOCOL_BASE = "https://civic.wc.tc";
 
 function publicClient() {
   const key = process.env["SUPABASE_PUBLISHABLE_KEY"]!;
